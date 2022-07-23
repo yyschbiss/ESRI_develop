@@ -34,6 +34,17 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -75,6 +86,8 @@
             this.ribbonPageGroup34 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup35 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup22 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -82,19 +95,6 @@
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup22 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -121,7 +121,7 @@
             this.barButtonItem14,
             this.barButtonItem15});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ribbonControl1.MaxItemId = 36;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -134,7 +134,7 @@
             this.ribbonPage6,
             this.ribbonPage8});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(1175, 184);
+            this.ribbonControl1.Size = new System.Drawing.Size(1028, 147);
             // 
             // barButtonItem2
             // 
@@ -153,12 +153,79 @@
             this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
             this.barButtonItem1.Id = 11;
             this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_1);
             // 
             // barButtonItem4
             // 
             this.barButtonItem4.Caption = "放大";
             this.barButtonItem4.Id = 17;
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "barButtonItem5";
+            this.barButtonItem5.Id = 22;
+            this.barButtonItem5.Name = "barButtonItem5";
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "开始编辑";
+            this.barButtonItem6.Id = 25;
+            this.barButtonItem6.Name = "barButtonItem6";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "保存编辑";
+            this.barButtonItem7.Id = 26;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "结束编辑";
+            this.barButtonItem8.Id = 27;
+            this.barButtonItem8.Name = "barButtonItem8";
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "建立缓冲区";
+            this.barButtonItem9.Id = 28;
+            this.barButtonItem9.Name = "barButtonItem9";
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "添加点要素";
+            this.barButtonItem10.Id = 29;
+            this.barButtonItem10.Name = "barButtonItem10";
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "添加线要素";
+            this.barButtonItem11.Id = 30;
+            this.barButtonItem11.Name = "barButtonItem11";
+            // 
+            // barButtonItem12
+            // 
+            this.barButtonItem12.Caption = "添加面要素";
+            this.barButtonItem12.Id = 31;
+            this.barButtonItem12.Name = "barButtonItem12";
+            // 
+            // barButtonItem13
+            // 
+            this.barButtonItem13.Caption = "移动要素";
+            this.barButtonItem13.Id = 32;
+            this.barButtonItem13.Name = "barButtonItem13";
+            // 
+            // barButtonItem14
+            // 
+            this.barButtonItem14.Caption = "删除要素";
+            this.barButtonItem14.Id = 33;
+            this.barButtonItem14.Name = "barButtonItem14";
+            // 
+            // barButtonItem15
+            // 
+            this.barButtonItem15.Caption = "属性修改";
+            this.barButtonItem15.Id = 34;
+            this.barButtonItem15.Name = "barButtonItem15";
             // 
             // ribbonPage1
             // 
@@ -422,129 +489,6 @@
             this.ribbonPage8.Name = "ribbonPage8";
             this.ribbonPage8.Text = "帮助";
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(0, 191);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(42, 41);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "放大";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(48, 191);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(42, 41);
-            this.simpleButton2.TabIndex = 2;
-            this.simpleButton2.Text = "缩小";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Location = new System.Drawing.Point(96, 191);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(42, 41);
-            this.simpleButton3.TabIndex = 3;
-            this.simpleButton3.Text = "漫游";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Location = new System.Drawing.Point(144, 191);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(42, 41);
-            this.simpleButton4.TabIndex = 4;
-            this.simpleButton4.Text = "全图";
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Location = new System.Drawing.Point(192, 191);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(42, 41);
-            this.simpleButton5.TabIndex = 5;
-            this.simpleButton5.Text = "指针";
-            // 
-            // axMapControl1
-            // 
-            this.axMapControl1.Location = new System.Drawing.Point(337, 191);
-            this.axMapControl1.Name = "axMapControl1";
-            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(826, 523);
-            this.axMapControl1.TabIndex = 7;
-            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
-            // 
-            // axTOCControl1
-            // 
-            this.axTOCControl1.Location = new System.Drawing.Point(0, 238);
-            this.axTOCControl1.Name = "axTOCControl1";
-            this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(331, 506);
-            this.axTOCControl1.TabIndex = 8;
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "barButtonItem5";
-            this.barButtonItem5.Id = 22;
-            this.barButtonItem5.Name = "barButtonItem5";
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "开始编辑";
-            this.barButtonItem6.Id = 25;
-            this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "保存编辑";
-            this.barButtonItem7.Id = 26;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "结束编辑";
-            this.barButtonItem8.Id = 27;
-            this.barButtonItem8.Name = "barButtonItem8";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "建立缓冲区";
-            this.barButtonItem9.Id = 28;
-            this.barButtonItem9.Name = "barButtonItem9";
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "添加点要素";
-            this.barButtonItem10.Id = 29;
-            this.barButtonItem10.Name = "barButtonItem10";
-            // 
-            // barButtonItem11
-            // 
-            this.barButtonItem11.Caption = "添加线要素";
-            this.barButtonItem11.Id = 30;
-            this.barButtonItem11.Name = "barButtonItem11";
-            // 
-            // barButtonItem12
-            // 
-            this.barButtonItem12.Caption = "添加面要素";
-            this.barButtonItem12.Id = 31;
-            this.barButtonItem12.Name = "barButtonItem12";
-            // 
-            // barButtonItem13
-            // 
-            this.barButtonItem13.Caption = "移动要素";
-            this.barButtonItem13.Id = 32;
-            this.barButtonItem13.Name = "barButtonItem13";
-            // 
-            // barButtonItem14
-            // 
-            this.barButtonItem14.Caption = "删除要素";
-            this.barButtonItem14.Id = 33;
-            this.barButtonItem14.Name = "barButtonItem14";
-            // 
-            // barButtonItem15
-            // 
-            this.barButtonItem15.Caption = "属性修改";
-            this.barButtonItem15.Id = 34;
-            this.barButtonItem15.Name = "barButtonItem15";
-            // 
             // ribbonPageGroup21
             // 
             this.ribbonPageGroup21.Name = "ribbonPageGroup21";
@@ -555,12 +499,76 @@
             this.ribbonPageGroup22.Name = "ribbonPageGroup22";
             this.ribbonPageGroup22.Text = "使用帮助";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(0, 149);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(37, 32);
+            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.Text = "放大";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(42, 149);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(37, 32);
+            this.simpleButton2.TabIndex = 2;
+            this.simpleButton2.Text = "缩小";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(84, 149);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(37, 32);
+            this.simpleButton3.TabIndex = 3;
+            this.simpleButton3.Text = "漫游";
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Location = new System.Drawing.Point(126, 149);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(37, 32);
+            this.simpleButton4.TabIndex = 4;
+            this.simpleButton4.Text = "全图";
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Location = new System.Drawing.Point(168, 149);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(37, 32);
+            this.simpleButton5.TabIndex = 5;
+            this.simpleButton5.Text = "指针";
+            // 
+            // axMapControl1
+            // 
+            this.axMapControl1.Location = new System.Drawing.Point(337, 191);
+            this.axMapControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.axMapControl1.Name = "axMapControl1";
+            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
+            this.axMapControl1.Size = new System.Drawing.Size(826, 523);
+            this.axMapControl1.TabIndex = 7;
+            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
+            // 
+            // axTOCControl1
+            // 
+            this.axTOCControl1.Location = new System.Drawing.Point(0, 238);
+            this.axTOCControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.axTOCControl1.Name = "axTOCControl1";
+            this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
+            this.axTOCControl1.Size = new System.Drawing.Size(331, 506);
+            this.axTOCControl1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 756);
+            this.ClientSize = new System.Drawing.Size(1028, 588);
             this.Controls.Add(this.axTOCControl1);
             this.Controls.Add(this.axMapControl1);
             this.Controls.Add(this.simpleButton5);
@@ -569,7 +577,7 @@
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.ribbonControl1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Form1";

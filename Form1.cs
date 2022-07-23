@@ -30,5 +30,10 @@ namespace DXApplication1
         {
 
         }
+
+        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }
