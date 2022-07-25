@@ -102,22 +102,37 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icon\createLayer.png" />
+    <Content Include="Resources\icon\eagle.png" />
+    <Content Include="Resources\icon\eagleEye.png" />
+    <Content Include="Resources\icon\landsat.jpg" />
+    <Content Include="Resources\icon\mapProjection.png" />
+    <Content Include="Resources\icon\modify.png" />
+    <Content Include="Resources\icon\Modis.jpg" />
+    <Content Include="Resources\icon\modis.png" />
+    <Content Include="Resources\icon\move.png" />
+    <Content Include="Resources\icon\polygon.png" />
+    <Content Include="Resources\icon\satellite.png" />
+    <Content Include="Resources\icon\temparture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
