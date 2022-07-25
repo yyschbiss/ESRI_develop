@@ -13,9 +13,33 @@ namespace DXApplication1
     {
         public Form1()
         {
-            //ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
-            //ESRI.ArcGIS.RuntimeManager.BindLicense(ESRI.ArcGIS.ProductCode.Engine);
+            ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
+            ESRI.ArcGIS.RuntimeManager.BindLicense(ESRI.ArcGIS.ProductCode.Engine);
             InitializeComponent();
+        }
+
+        public string[] OpenShapeFile()
+        {
+            string[] ShpFile = new string[2];
+            OpenFileDialog OpenShpFile = new OpenFileDialog();
+            OpenShpFile.Title = "打开Shape文件";
+            OpenShpFile.InitialDirectory = "E:";
+            OpenShpFile.Filter = "Shape文件(*.shp)|*.shp";
+
+            if (OpenShpFile.ShowDialog() == DialogResult.OK)
+            {
+                string ShapPath = OpenShpFile.FileName;
+                //利用"\\"将文件路径分成两部分
+                int Position = ShapPath.LastIndexOf("\\");
+
+                string FilePath = ShapPath.Substring(0, Position);
+                string ShpName = ShapPath.Substring(Position + 1);
+                ShpFile[0] = FilePath;
+
+                ShpFile[1] = ShpName;
+
+            }
+            return ShpFile;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,5 +100,20 @@ namespace DXApplication1
                 }
             }
         }
-    }
+
+        private void barButtonItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+           string []FileInfo = OpenShapeFile();
+                try
+                {
+                    axMapControl1.AddShapeFile(FileInfo[0],FileInfo[1]);
+                }
+                catch (Exception excep)
+                {
+                    MessageBox.Show("添加shp文件失败" + excep.ToString());
+                }
+
+            }
+        }
 }
