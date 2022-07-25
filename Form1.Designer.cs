@@ -76,12 +76,18 @@
             this.barButtonItem44 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem45 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem46 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem47 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem48 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem49 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem50 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem51 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup19 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -112,12 +118,6 @@
             this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
-            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem47 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem48 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem49 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem50 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem51 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -432,6 +432,7 @@
             this.barButtonItem33.Id = 55;
             this.barButtonItem33.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem33.LargeGlyph")));
             this.barButtonItem33.Name = "barButtonItem33";
+            this.barButtonItem33.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem33_ItemClick);
             // 
             // barButtonItem34
             // 
@@ -445,6 +446,7 @@
             // 
             this.barButtonItem35.Caption = "计算沉降指数";
             this.barButtonItem35.Id = 57;
+            this.barButtonItem35.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem35.LargeGlyph")));
             this.barButtonItem35.Name = "barButtonItem35";
             this.barButtonItem35.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem35_ItemClick);
             // 
@@ -452,12 +454,14 @@
             // 
             this.barButtonItem36.Caption = "计算风险区域";
             this.barButtonItem36.Id = 58;
+            this.barButtonItem36.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem36.LargeGlyph")));
             this.barButtonItem36.Name = "barButtonItem36";
             // 
             // barButtonItem37
             // 
             this.barButtonItem37.Caption = "计算环境承受力";
             this.barButtonItem37.Id = 59;
+            this.barButtonItem37.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem37.LargeGlyph")));
             this.barButtonItem37.Name = "barButtonItem37";
             // 
             // barButtonItem38
@@ -470,12 +474,14 @@
             // 
             this.barButtonItem39.Caption = "计算经济损失";
             this.barButtonItem39.Id = 61;
+            this.barButtonItem39.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem39.LargeGlyph")));
             this.barButtonItem39.Name = "barButtonItem39";
             // 
             // barButtonItem40
             // 
             this.barButtonItem40.Caption = "计算融沉风险";
             this.barButtonItem40.Id = 62;
+            this.barButtonItem40.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem40.LargeGlyph")));
             this.barButtonItem40.Name = "barButtonItem40";
             // 
             // barButtonItem41
@@ -520,6 +526,46 @@
             this.barButtonItem46.Caption = "barButtonItem46";
             this.barButtonItem46.Id = 69;
             this.barButtonItem46.Name = "barButtonItem46";
+            // 
+            // barButtonItem47
+            // 
+            this.barButtonItem47.Caption = "放大";
+            this.barButtonItem47.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem47.Glyph")));
+            this.barButtonItem47.Id = 70;
+            this.barButtonItem47.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem47.LargeGlyph")));
+            this.barButtonItem47.Name = "barButtonItem47";
+            // 
+            // barButtonItem48
+            // 
+            this.barButtonItem48.Caption = "缩小";
+            this.barButtonItem48.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem48.Glyph")));
+            this.barButtonItem48.Id = 71;
+            this.barButtonItem48.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem48.LargeGlyph")));
+            this.barButtonItem48.Name = "barButtonItem48";
+            // 
+            // barButtonItem49
+            // 
+            this.barButtonItem49.Caption = "漫游";
+            this.barButtonItem49.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem49.Glyph")));
+            this.barButtonItem49.Id = 72;
+            this.barButtonItem49.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem49.LargeGlyph")));
+            this.barButtonItem49.Name = "barButtonItem49";
+            // 
+            // barButtonItem50
+            // 
+            this.barButtonItem50.Caption = "全图";
+            this.barButtonItem50.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem50.Glyph")));
+            this.barButtonItem50.Id = 73;
+            this.barButtonItem50.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem50.LargeGlyph")));
+            this.barButtonItem50.Name = "barButtonItem50";
+            // 
+            // barButtonItem51
+            // 
+            this.barButtonItem51.Caption = "指针";
+            this.barButtonItem51.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem51.Glyph")));
+            this.barButtonItem51.Id = 74;
+            this.barButtonItem51.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem51.LargeGlyph")));
+            this.barButtonItem51.Name = "barButtonItem51";
             // 
             // ribbonPage1
             // 
@@ -568,6 +614,16 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem20);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "操作";
+            // 
+            // ribbonPageGroup15
+            // 
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem47);
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem48);
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem49);
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem50);
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem51);
+            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.ribbonPageGroup15.Text = "浏览操作";
             // 
             // ribbonPage3
             // 
@@ -805,56 +861,6 @@
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
             this.axTOCControl1.Size = new System.Drawing.Size(272, 544);
             this.axTOCControl1.TabIndex = 8;
-            // 
-            // ribbonPageGroup15
-            // 
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem47);
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem48);
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem49);
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem50);
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem51);
-            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
-            this.ribbonPageGroup15.Text = "浏览操作";
-            // 
-            // barButtonItem47
-            // 
-            this.barButtonItem47.Caption = "放大";
-            this.barButtonItem47.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem47.Glyph")));
-            this.barButtonItem47.Id = 70;
-            this.barButtonItem47.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem47.LargeGlyph")));
-            this.barButtonItem47.Name = "barButtonItem47";
-            // 
-            // barButtonItem48
-            // 
-            this.barButtonItem48.Caption = "缩小";
-            this.barButtonItem48.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem48.Glyph")));
-            this.barButtonItem48.Id = 71;
-            this.barButtonItem48.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem48.LargeGlyph")));
-            this.barButtonItem48.Name = "barButtonItem48";
-            // 
-            // barButtonItem49
-            // 
-            this.barButtonItem49.Caption = "漫游";
-            this.barButtonItem49.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem49.Glyph")));
-            this.barButtonItem49.Id = 72;
-            this.barButtonItem49.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem49.LargeGlyph")));
-            this.barButtonItem49.Name = "barButtonItem49";
-            // 
-            // barButtonItem50
-            // 
-            this.barButtonItem50.Caption = "全图";
-            this.barButtonItem50.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem50.Glyph")));
-            this.barButtonItem50.Id = 73;
-            this.barButtonItem50.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem50.LargeGlyph")));
-            this.barButtonItem50.Name = "barButtonItem50";
-            // 
-            // barButtonItem51
-            // 
-            this.barButtonItem51.Caption = "指针";
-            this.barButtonItem51.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem51.Glyph")));
-            this.barButtonItem51.Id = 74;
-            this.barButtonItem51.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem51.LargeGlyph")));
-            this.barButtonItem51.Name = "barButtonItem51";
             // 
             // Form1
             // 

@@ -40,5 +40,11 @@ namespace DXApplication1
         {
 
         }
+
+        private void barButtonItem33_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AboutUS aboutusform = new AboutUS();
+            aboutusform.Show();
+        }
     }
 }
