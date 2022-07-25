@@ -18,3 +18,12 @@ C:\Users\23571\Desktop\arcgis - 副本\DXApplication1\DXApplication1\obj\Debug\D
 C:\Users\23571\Desktop\arcgis - 副本\DXApplication1\DXApplication1\obj\Debug\DXApplication1.exe.licenses
 C:\Users\zhanl\Desktop\t\程序设计\DXApplication1\DXApplication1\obj\Debug\DXApplication1.exe
 C:\Users\zhanl\Desktop\t\程序设计\DXApplication1\DXApplication1\obj\Debug\DXApplication1.pdb
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\obj\Debug\DXApplication1.exe
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\obj\Debug\DXApplication1.pdb
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\obj\Debug\DXApplication1.csprojResolveAssemblyReference.cache
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\obj\Debug\DXApplication1.Form1.resources
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\obj\Debug\DXApplication1.csproj.GenerateResource.Cache
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\bin\Debug\DXApplication1.exe
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\bin\Debug\DXApplication1.pdb
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\obj\Debug\DXApplication1.Properties.Resources.resources
+C:\Users\zhanl\Desktop\t\mainDevelop\DXApplication1\DXApplication1\obj\Debug\DXApplication1.exe.licenses
