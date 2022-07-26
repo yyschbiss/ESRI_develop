@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Geometry;
+using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Display;
 namespace DXApplication1
 {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -179,6 +182,121 @@ namespace DXApplication1
             else
             {
                 MessageBox.Show("文件打开出错");
+            }
+        }
+
+
+
+        // 进行鹰眼功能的实现
+        //------------------
+        
+        private void axMapControl1_OnMapReplaced_1(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMapReplacedEvent e)
+        {
+            this.axMapControl2.Map = new MapClass();
+            for (int i = 1; i <= this.axMapControl1.LayerCount; i++)// 添加主地图控件中的所有图层到鹰眼控件中
+            {
+                this.axMapControl2.AddLayer(this.axMapControl1.get_Layer(this.axMapControl1.LayerCount - i));
+            }
+            this.axMapControl2.Extent = this.axMapControl1.FullExtent;// 设置 MapControl 显示范围至数据的全局范围         
+            this.axMapControl2.Refresh();// 刷新鹰眼控件地图
+        }
+
+        private void axMapControl1_OnExtentUpdated_1(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnExtentUpdatedEvent e)
+        {
+            // 得到新范围
+            IEnvelope pEnv = (IEnvelope)e.newEnvelope;
+            IGraphicsContainer pGra = axMapControl2.Map as IGraphicsContainer;
+            IActiveView pAv = pGra as IActiveView;
+            // 在绘制前，清除 axMapControl2 中的任何图形元素
+            pGra.DeleteAllElements();
+            IRectangleElement pRectangleEle = new RectangleElementClass();
+            IElement pEle = pRectangleEle as IElement;
+            pEle.Geometry = pEnv;
+            // 设置鹰眼图中的红线框
+            IRgbColor pColor = new RgbColorClass();
+            pColor.Red = 255;
+            pColor.Green = 0;
+            pColor.Blue = 0;
+            pColor.Transparency = 255;
+            // 产生一个线符号对象
+            ILineSymbol pOutline = new SimpleLineSymbolClass();
+            pOutline.Width = 2;
+            pOutline.Color = pColor;
+            // 设置颜色属性
+            pColor = new RgbColorClass();
+            pColor.Red = 255;
+            pColor.Green = 0;
+            pColor.Blue = 0;
+            pColor.Transparency = 0;
+            // 设置填充符号的属性
+            IFillSymbol pFillSymbol = new SimpleFillSymbolClass();
+            pFillSymbol.Color = pColor;
+            pFillSymbol.Outline = pOutline;
+            IFillShapeElement pFillShapeEle = pEle as IFillShapeElement;
+            pFillShapeEle.Symbol = pFillSymbol;
+            pGra.AddElement((IElement)pFillShapeEle, 0);
+            // 刷新
+            pAv.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        }
+
+         private void axMapControl2_OnMouseDown_1(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (this.axMapControl2.Map.LayerCount != 0)
+            {
+                // 按下鼠标左键移动矩形框
+                if (e.button == 1)
+                {
+                    IPoint pPoint = new PointClass();
+                    pPoint.PutCoords(e.mapX, e.mapY);
+                    IEnvelope pEnvelope = this.axMapControl1.Extent;
+                    pEnvelope.CenterAt(pPoint);
+                    this.axMapControl1.Extent = pEnvelope;  
+                    this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                }
+                // 按下鼠标右键绘制矩形框
+                else if (e.button == 2)
+                {
+                    IEnvelope pEnvelop = this.axMapControl2.TrackRectangle();
+                    this.axMapControl1.Extent = pEnvelop;
+ 
+                    this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                }
+            }
+        }
+
+        private void axMapControl2_OnMouseMove_1(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            if (e.button != 1) return;
+            IPoint pPoint = new PointClass();
+            pPoint.PutCoords(e.mapX, e.mapY);
+            this.axMapControl1.CenterAt(pPoint);
+            this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+        }
+
+        /*
+         * 目前还没有实现鹰眼功能的开关，此处需要进一步改进
+         * 
+        */
+        private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //通过一个bool实现开关
+            bool Isvalidate = true;
+
+            if (Isvalidate)
+            {
+                axMapControl1.OnMapReplaced += axMapControl1_OnMapReplaced_1;
+                axMapControl1.OnExtentUpdated += axMapControl1_OnExtentUpdated_1;
+                axMapControl2.OnMouseDown += axMapControl2_OnMouseDown_1;
+                axMapControl2.OnMouseMove += axMapControl2_OnMouseMove_1;
+                Isvalidate = false;
+            }
+            else
+            {
+                axMapControl1.OnMapReplaced -= axMapControl1_OnMapReplaced_1;
+                axMapControl1.OnExtentUpdated -= axMapControl1_OnExtentUpdated_1;
+                axMapControl2.OnMouseDown -= axMapControl2_OnMouseDown_1;
+                axMapControl2.OnMouseMove -= axMapControl2_OnMouseMove_1;
+                Isvalidate = true;
             }
         }
     }

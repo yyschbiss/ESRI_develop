@@ -118,9 +118,11 @@
             this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
+            this.axMapControl2 = new ESRI.ArcGIS.Controls.AxMapControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -345,6 +347,7 @@
             this.barButtonItem20.Id = 42;
             this.barButtonItem20.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.LargeGlyph")));
             this.barButtonItem20.Name = "barButtonItem20";
+            this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
             // 
             // barButtonItem21
             // 
@@ -856,6 +859,8 @@
             this.axMapControl1.Size = new System.Drawing.Size(826, 534);
             this.axMapControl1.TabIndex = 7;
             this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
+            this.axMapControl1.OnExtentUpdated += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnExtentUpdatedEventHandler(this.axMapControl1_OnExtentUpdated_1);
+            this.axMapControl1.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.axMapControl1_OnMapReplaced_1);
             // 
             // axTOCControl1
             // 
@@ -863,8 +868,18 @@
             this.axTOCControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.axTOCControl1.Name = "axTOCControl1";
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(272, 544);
+            this.axTOCControl1.Size = new System.Drawing.Size(272, 330);
             this.axTOCControl1.TabIndex = 8;
+            // 
+            // axMapControl2
+            // 
+            this.axMapControl2.Location = new System.Drawing.Point(0, 482);
+            this.axMapControl2.Name = "axMapControl2";
+            this.axMapControl2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl2.OcxState")));
+            this.axMapControl2.Size = new System.Drawing.Size(272, 199);
+            this.axMapControl2.TabIndex = 10;
+            this.axMapControl2.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl2_OnMouseDown_1);
+            this.axMapControl2.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl2_OnMouseMove_1);
             // 
             // Form1
             // 
@@ -872,6 +887,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 681);
+            this.Controls.Add(this.axMapControl2);
             this.Controls.Add(this.axTOCControl1);
             this.Controls.Add(this.axMapControl1);
             this.Controls.Add(this.ribbonControl1);
@@ -884,6 +900,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -980,6 +997,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem50;
         private DevExpress.XtraBars.BarButtonItem barButtonItem51;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
+        private ESRI.ArcGIS.Controls.AxMapControl axMapControl2;
     }
 }
 
