@@ -119,6 +119,9 @@
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.axMapControl2 = new ESRI.ArcGIS.Controls.AxMapControl();
+            this.barButtonItem52 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem53 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -180,10 +183,12 @@
             this.barButtonItem48,
             this.barButtonItem49,
             this.barButtonItem50,
-            this.barButtonItem51});
+            this.barButtonItem51,
+            this.barButtonItem52,
+            this.barButtonItem53});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ribbonControl1.MaxItemId = 75;
+            this.ribbonControl1.MaxItemId = 77;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -541,6 +546,7 @@
             this.barButtonItem47.Id = 70;
             this.barButtonItem47.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem47.LargeGlyph")));
             this.barButtonItem47.Name = "barButtonItem47";
+            this.barButtonItem47.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem47_ItemClick);
             // 
             // barButtonItem48
             // 
@@ -549,6 +555,7 @@
             this.barButtonItem48.Id = 71;
             this.barButtonItem48.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem48.LargeGlyph")));
             this.barButtonItem48.Name = "barButtonItem48";
+            this.barButtonItem48.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem48_ItemClick);
             // 
             // barButtonItem49
             // 
@@ -557,6 +564,7 @@
             this.barButtonItem49.Id = 72;
             this.barButtonItem49.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem49.LargeGlyph")));
             this.barButtonItem49.Name = "barButtonItem49";
+            this.barButtonItem49.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem49_ItemClick);
             // 
             // barButtonItem50
             // 
@@ -565,6 +573,7 @@
             this.barButtonItem50.Id = 73;
             this.barButtonItem50.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem50.LargeGlyph")));
             this.barButtonItem50.Name = "barButtonItem50";
+            this.barButtonItem50.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem50_ItemClick);
             // 
             // barButtonItem51
             // 
@@ -611,7 +620,8 @@
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
-            this.ribbonPageGroup15});
+            this.ribbonPageGroup15,
+            this.ribbonPageGroup16});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "常用功能";
             // 
@@ -881,6 +891,31 @@
             this.axMapControl2.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl2_OnMouseDown_1);
             this.axMapControl2.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl2_OnMouseMove_1);
             // 
+            // barButtonItem52
+            // 
+            this.barButtonItem52.Caption = "空间测量";
+            this.barButtonItem52.Id = 75;
+            this.barButtonItem52.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem52.LargeGlyph")));
+            this.barButtonItem52.Name = "barButtonItem52";
+            this.barButtonItem52.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem52_ItemClick);
+            // 
+            // ribbonPageGroup16
+            // 
+            this.ribbonPageGroup16.AllowTextClipping = false;
+            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem52);
+            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem53);
+            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
+            this.ribbonPageGroup16.Text = "数据查看";
+            // 
+            // barButtonItem53
+            // 
+            this.barButtonItem53.Caption = "属性获取";
+            this.barButtonItem53.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem53.Glyph")));
+            this.barButtonItem53.Id = 76;
+            this.barButtonItem53.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem53.LargeGlyph")));
+            this.barButtonItem53.Name = "barButtonItem53";
+            this.barButtonItem53.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem53_ItemClick);
+            // 
             // Form1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -998,6 +1033,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem51;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
         private ESRI.ArcGIS.Controls.AxMapControl axMapControl2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem52;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem53;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
     }
 }
 

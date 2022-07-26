@@ -12,10 +12,13 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.SystemUI;
 namespace DXApplication1
 {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        //通过一个bool实现开关
+        private bool IsEagleEyesValidate = true;
         public Form1()
         {
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
@@ -279,16 +282,15 @@ namespace DXApplication1
         */
         private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //通过一个bool实现开关
-            bool Isvalidate = true;
+            
 
-            if (Isvalidate)
+            if (!IsEagleEyesValidate)
             {
                 axMapControl1.OnMapReplaced += axMapControl1_OnMapReplaced_1;
                 axMapControl1.OnExtentUpdated += axMapControl1_OnExtentUpdated_1;
                 axMapControl2.OnMouseDown += axMapControl2_OnMouseDown_1;
                 axMapControl2.OnMouseMove += axMapControl2_OnMouseMove_1;
-                Isvalidate = false;
+                IsEagleEyesValidate = true;
             }
             else
             {
@@ -296,8 +298,52 @@ namespace DXApplication1
                 axMapControl1.OnExtentUpdated -= axMapControl1_OnExtentUpdated_1;
                 axMapControl2.OnMouseDown -= axMapControl2_OnMouseDown_1;
                 axMapControl2.OnMouseMove -= axMapControl2_OnMouseMove_1;
-                Isvalidate = true;
+                //试图在
+                //axMapControl2.Map = new Map();
+                //axMapControl2.Refresh();
+                IsEagleEyesValidate = false;
             }
+        }
+
+        private void barButtonItem47_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand pZoomIn = new ControlsMapZoomInToolClass();
+            pZoomIn.OnCreate(axMapControl1.Object);
+            axMapControl1.CurrentTool = pZoomIn as ITool;
+        }
+
+        private void barButtonItem48_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand pZoomOut = new ControlsMapZoomOutToolClass();
+            pZoomOut.OnCreate(axMapControl1.Object);
+            axMapControl1.CurrentTool = pZoomOut as ITool;
+        }
+
+        private void barButtonItem52_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand pMapMeature = new ControlsMapMeasureToolClass();
+            pMapMeature.OnCreate(axMapControl1.Object);
+            axMapControl1.CurrentTool = pMapMeature as ITool;
+        }
+
+        private void barButtonItem53_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand pIdentify = new ControlsMapIdentifyToolClass();
+            pIdentify.OnCreate(axMapControl1.Object);
+            axMapControl1.CurrentTool = pIdentify as ITool;
+            
+        }
+
+        private void barButtonItem50_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            axMapControl1.Extent = axMapControl1.FullExtent;
+        }
+
+        private void barButtonItem49_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ICommand pPan = new ControlsMapPanToolClass();
+            pPan.OnCreate(axMapControl1.Object);
+            axMapControl1.CurrentTool = pPan as ITool;
         }
     }
 }
