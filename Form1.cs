@@ -13,6 +13,7 @@ using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.SystemUI;
+
 namespace DXApplication1
 {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -23,8 +24,24 @@ namespace DXApplication1
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
             ESRI.ArcGIS.RuntimeManager.BindLicense(ESRI.ArcGIS.ProductCode.Engine);
             InitializeComponent();
+
         }
 
+// 一系列为了TocControl右键菜单实现的常量
+// ------------------------------------
+        // 存储所点击的要素类型
+        esriTOCControlItem pItem = esriTOCControlItem.esriTOCControlItemNone;
+        // 地图对象
+        IBasicMap pMap = null;
+        // 图层对象
+        ILayer pLayer = null;
+        object unk = null;
+        object data = null;
+        // 点击的要素图层
+        IFeatureLayer pTocFeatureLayer = null;
+        Attribute_Form frmAttribute = null;
+        
+//-----------------------------------------
         public string[] OpenShapeFile()
         {
             string[] ShpFile = new string[2];
@@ -104,6 +121,7 @@ namespace DXApplication1
 
         }
 
+        //打开MXD文档
         private void barButtonItem1_ItemClick_2(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog openFiledialog;
@@ -127,6 +145,7 @@ namespace DXApplication1
             }
         }
 
+        //打开Shapefile
         private void barButtonItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -164,6 +183,7 @@ namespace DXApplication1
             return pRasterDataset;
         }
 
+        //加载landsat
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string[] tifFile = new string[2];
@@ -284,6 +304,7 @@ namespace DXApplication1
                 panel1.Visible = true;
         }
 
+        //放大
         private void barButtonItem47_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ICommand pZoomIn = new ControlsMapZoomInToolClass();
@@ -291,6 +312,7 @@ namespace DXApplication1
             axMapControl1.CurrentTool = pZoomIn as ITool;
         }
 
+        //缩小
         private void barButtonItem48_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ICommand pZoomOut = new ControlsMapZoomOutToolClass();
@@ -298,6 +320,7 @@ namespace DXApplication1
             axMapControl1.CurrentTool = pZoomOut as ITool;
         }
 
+        //空间测量
         private void barButtonItem52_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ICommand pMapMeature = new ControlsMapMeasureToolClass();
@@ -305,6 +328,7 @@ namespace DXApplication1
             axMapControl1.CurrentTool = pMapMeature as ITool;
         }
 
+        //属性获取
         private void barButtonItem53_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ICommand pIdentify = new ControlsMapIdentifyToolClass();
@@ -313,11 +337,13 @@ namespace DXApplication1
             
         }
 
+        //全图
         private void barButtonItem50_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             axMapControl1.Extent = axMapControl1.FullExtent;
         }
 
+        //漫游
         private void barButtonItem49_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ICommand pPan = new ControlsMapPanToolClass();
@@ -327,9 +353,32 @@ namespace DXApplication1
 
         private void axTOCControl1_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
         {
+         try
+           {
+               if (e.button == 2)           // 判断是不是右键点击； 1是左键，2是右键
+               {
 
+                   // 以引用的方式传递参数，方便将值带出来
+                   axTOCControl1.HitTest(e.x, e.y, ref pItem, ref pMap, ref pLayer, ref unk, ref data);
+                   // 点击的要素图层
+                   pTocFeatureLayer = pLayer as IFeatureLayer;
+                   // 判断是否是图层要素
+                   if (pItem == esriTOCControlItem.esriTOCControlItemLayer && pTocFeatureLayer != null)
+                   {
+                       // 打开右键菜单，参数为当前鼠标的位置
+                       contextMenuStrip1.Show(Control.MousePosition);
+                   }
+               }
+               
+           }
+           catch (Exception ex)
+           {
+               MessageBox.Show(ex.Message);
+           }
+           
         }
 
+        //另存为
         private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -356,6 +405,7 @@ namespace DXApplication1
             }
         }
 
+        //保存
         private void saveBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try 
@@ -397,6 +447,131 @@ namespace DXApplication1
             {
                 MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
             }
+        }
+
+        private void OpenRaster(string rasterFileName)
+        {
+
+            //文件名处理
+
+            string ws = System.IO.Path.GetDirectoryName(rasterFileName);
+
+            string fbs = System.IO.Path.GetFileName(rasterFileName);
+
+            //创建工作空间
+
+            IWorkspaceFactory pWork = new RasterWorkspaceFactoryClass();
+
+            //打开工作空间路径，工作空间的参数是目录，不是具体的文件名
+
+            IRasterWorkspace pRasterWS = (IRasterWorkspace)pWork.OpenFromFile(ws, 0);
+
+            //打开工作空间下的文件，
+
+            IRasterDataset pRasterDataset = pRasterWS.OpenRasterDataset(fbs);
+
+            IRasterLayer pRasterLayer = new RasterLayerClass();
+
+            pRasterLayer.CreateFromDataset(pRasterDataset);
+
+            //添加到图层控制中
+
+            axMapControl1.Map.AddLayer(pRasterLayer as ILayer);
+
+        }
+
+
+        private void barButtonItem24_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            //初始化ENVI
+
+            COM_IDL_connectLib.COM_IDL_connectClass oComIDL = new COM_IDL_connectLib.COM_IDL_connectClass();
+
+            oComIDL.CreateObject(0, 0, 0);
+
+            //文件打开
+
+            OpenFileDialog pOpenFile = new OpenFileDialog();
+
+            pOpenFile.Title = "打开栅格文件";
+
+            //文件选择
+
+            if (pOpenFile.ShowDialog() == DialogResult.OK)
+
+                //打开显示栅格文件
+
+                OpenRaster(pOpenFile.FileName);
+
+            //调用ENVI进行栅格放大*2处理示例
+
+            SaveFileDialog pSaveFile = new SaveFileDialog();
+
+            pSaveFile.Title = "输出放大后影像";
+
+            if (pSaveFile.ShowDialog() == DialogResult.OK)
+            {
+
+                //执行重采样
+
+                oComIDL.ExecuteString(".compile '" + System.IO.Directory.GetCurrentDirectory() + @"\IDLmctk.pro'");
+
+                //oComIDL.ExecuteString(@"s = obj_new('object_envi_resize','" + pOpenFile.FileName + "','" + pSaveFile.FileName + "')");
+
+                oComIDL.ExecuteString("s.EXECUTERESIZE,2,2,0");
+
+                oComIDL.ExecuteString("Obj_destroy,s");
+
+                //加载放大后影像
+
+                OpenRaster(pSaveFile.FileName);
+
+            }
+
+        }
+
+        //TocControls右键菜单查看属性表
+        private void hellpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // frmAttribute是类里面定义的全局变量，也就是属性表窗体
+            if (frmAttribute == null || frmAttribute.IsDisposed)
+            {
+                frmAttribute = new Attribute_Form();
+            }
+            // 一定要记得将要素图层赋值给属性表窗体
+            frmAttribute.CurFeatureLayer = pTocFeatureLayer;
+            // 初始化窗体
+            frmAttribute.InitUI();
+            // 显示窗体
+            frmAttribute.ShowDialog();
+
+        }
+
+        private void barButtonItem19_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        //指针
+        private void barButtonItem51_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void 移除图层ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if(pTocFeatureLayer!=null)
+            {
+                 for (int i = 0; i < axMapControl1.LayerCount; i++)
+                 {
+                     if (axMapControl1.get_Layer(i) == pTocFeatureLayer)//通过for循环得到选中图层索引，并直接调用DeleteLayer方法定点删除
+                     axMapControl1.DeleteLayer(i);
+                 }
+                 axMapControl1.ActiveView.Refresh();
+            }
+            
         }
     }
 }

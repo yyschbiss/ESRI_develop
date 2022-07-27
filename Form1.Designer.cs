@@ -84,6 +84,7 @@
             this.barButtonItem51 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem52 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem53 = new DevExpress.XtraBars.BarButtonItem();
+            this.saveBtn = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -124,13 +125,13 @@
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hellpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.移除图层ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axMapControl2 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.saveBtn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -362,6 +363,7 @@
             this.barButtonItem19.Id = 41;
             this.barButtonItem19.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.LargeGlyph")));
             this.barButtonItem19.Name = "barButtonItem19";
+            this.barButtonItem19.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem19_ItemClick);
             // 
             // barButtonItem20
             // 
@@ -401,6 +403,7 @@
             this.barButtonItem24.Id = 46;
             this.barButtonItem24.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem24.LargeGlyph")));
             this.barButtonItem24.Name = "barButtonItem24";
+            this.barButtonItem24.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem24_ItemClick);
             // 
             // barButtonItem25
             // 
@@ -434,6 +437,7 @@
             // 
             this.barButtonItem29.Caption = "DDT";
             this.barButtonItem29.Id = 51;
+            this.barButtonItem29.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem29.LargeGlyph")));
             this.barButtonItem29.Name = "barButtonItem29";
             // 
             // barButtonItem30
@@ -446,12 +450,14 @@
             // 
             this.barButtonItem31.Caption = "ALT";
             this.barButtonItem31.Id = 53;
+            this.barButtonItem31.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem31.LargeGlyph")));
             this.barButtonItem31.Name = "barButtonItem31";
             // 
             // barButtonItem32
             // 
             this.barButtonItem32.Caption = "MAGT";
             this.barButtonItem32.Id = 54;
+            this.barButtonItem32.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem32.LargeGlyph")));
             this.barButtonItem32.Name = "barButtonItem32";
             // 
             // barButtonItem33
@@ -599,6 +605,7 @@
             this.barButtonItem51.Id = 74;
             this.barButtonItem51.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem51.LargeGlyph")));
             this.barButtonItem51.Name = "barButtonItem51";
+            this.barButtonItem51.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem51_ItemClick);
             // 
             // barButtonItem52
             // 
@@ -616,6 +623,15 @@
             this.barButtonItem53.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem53.LargeGlyph")));
             this.barButtonItem53.Name = "barButtonItem53";
             this.barButtonItem53.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem53_ItemClick);
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Caption = "保存";
+            this.saveBtn.Glyph = ((System.Drawing.Image)(resources.GetObject("saveBtn.Glyph")));
+            this.saveBtn.Id = 77;
+            this.saveBtn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("saveBtn.LargeGlyph")));
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveBtn_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -928,15 +944,24 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hellpToolStripMenuItem});
+            this.hellpToolStripMenuItem,
+            this.移除图层ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 48);
             // 
             // hellpToolStripMenuItem
             // 
             this.hellpToolStripMenuItem.Name = "hellpToolStripMenuItem";
-            this.hellpToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.hellpToolStripMenuItem.Text = "hellp";
+            this.hellpToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.hellpToolStripMenuItem.Text = "查看属性表";
+            this.hellpToolStripMenuItem.Click += new System.EventHandler(this.hellpToolStripMenuItem_Click);
+            // 
+            // 移除图层ToolStripMenuItem
+            // 
+            this.移除图层ToolStripMenuItem.Name = "移除图层ToolStripMenuItem";
+            this.移除图层ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.移除图层ToolStripMenuItem.Text = "移除图层";
+            this.移除图层ToolStripMenuItem.Click += new System.EventHandler(this.移除图层ToolStripMenuItem_Click);
             // 
             // axMapControl2
             // 
@@ -996,15 +1021,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(272, 199);
             this.panel1.TabIndex = 15;
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.Caption = "保存";
-            this.saveBtn.Glyph = ((System.Drawing.Image)(resources.GetObject("saveBtn.Glyph")));
-            this.saveBtn.Id = 77;
-            this.saveBtn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("saveBtn.LargeGlyph")));
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveBtn_ItemClick);
             // 
             // Form1
             // 
@@ -1140,6 +1156,7 @@
         private System.Windows.Forms.ToolStripMenuItem hellpToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraBars.BarButtonItem saveBtn;
+        private System.Windows.Forms.ToolStripMenuItem 移除图层ToolStripMenuItem;
     }
 }
 
