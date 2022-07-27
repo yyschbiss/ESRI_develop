@@ -122,22 +122,25 @@
             this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
-            this.axMapControl2 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.显示属性表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hellpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.axMapControl2 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.saveBtn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -197,10 +200,11 @@
             this.barButtonItem50,
             this.barButtonItem51,
             this.barButtonItem52,
-            this.barButtonItem53});
+            this.barButtonItem53,
+            this.saveBtn});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ribbonControl1.MaxItemId = 77;
+            this.ribbonControl1.MaxItemId = 78;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -349,6 +353,7 @@
             this.barButtonItem18.Id = 40;
             this.barButtonItem18.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem18.LargeGlyph")));
             this.barButtonItem18.Name = "barButtonItem18";
+            this.barButtonItem18.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem18_ItemClick);
             // 
             // barButtonItem19
             // 
@@ -641,6 +646,7 @@
             // 
             this.ribbonPageGroup19.AllowTextClipping = false;
             this.ribbonPageGroup19.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup19.Glyph")));
+            this.ribbonPageGroup19.ItemLinks.Add(this.saveBtn);
             this.ribbonPageGroup19.ItemLinks.Add(this.barButtonItem18);
             this.ribbonPageGroup19.Name = "ribbonPageGroup19";
             this.ribbonPageGroup19.Text = "其他操作";
@@ -910,35 +916,37 @@
             // 
             // axTOCControl1
             // 
+            this.axTOCControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.axTOCControl1.Location = new System.Drawing.Point(0, 147);
             this.axTOCControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.axTOCControl1.Name = "axTOCControl1";
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
             this.axTOCControl1.Size = new System.Drawing.Size(272, 330);
             this.axTOCControl1.TabIndex = 8;
-            // 
-            // axMapControl2
-            // 
-            this.axMapControl2.Location = new System.Drawing.Point(0, 482);
-            this.axMapControl2.Name = "axMapControl2";
-            this.axMapControl2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl2.OcxState")));
-            this.axMapControl2.Size = new System.Drawing.Size(272, 199);
-            this.axMapControl2.TabIndex = 10;
-            this.axMapControl2.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl2_OnMouseDown_1);
-            this.axMapControl2.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl2_OnMouseMove_1);
+            this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.显示属性表ToolStripMenuItem});
+            this.hellpToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 26);
             // 
-            // 显示属性表ToolStripMenuItem
+            // hellpToolStripMenuItem
             // 
-            this.显示属性表ToolStripMenuItem.Name = "显示属性表ToolStripMenuItem";
-            this.显示属性表ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.显示属性表ToolStripMenuItem.Text = "显示属性表";
+            this.hellpToolStripMenuItem.Name = "hellpToolStripMenuItem";
+            this.hellpToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.hellpToolStripMenuItem.Text = "hellp";
+            // 
+            // axMapControl2
+            // 
+            this.axMapControl2.Location = new System.Drawing.Point(3, 0);
+            this.axMapControl2.Name = "axMapControl2";
+            this.axMapControl2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl2.OcxState")));
+            this.axMapControl2.Size = new System.Drawing.Size(266, 196);
+            this.axMapControl2.TabIndex = 10;
+            this.axMapControl2.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl2_OnMouseDown_1);
+            this.axMapControl2.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl2_OnMouseMove_1);
             // 
             // tabControl1
             // 
@@ -981,14 +989,31 @@
             this.axPageLayoutControl1.Size = new System.Drawing.Size(818, 507);
             this.axPageLayoutControl1.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.axMapControl2);
+            this.panel1.Location = new System.Drawing.Point(0, 482);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(272, 199);
+            this.panel1.TabIndex = 15;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Caption = "保存";
+            this.saveBtn.Glyph = ((System.Drawing.Image)(resources.GetObject("saveBtn.Glyph")));
+            this.saveBtn.Id = 77;
+            this.saveBtn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("saveBtn.LargeGlyph")));
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveBtn_ItemClick);
+            // 
             // Form1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 681);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.axMapControl2);
             this.Controls.Add(this.axTOCControl1);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1000,12 +1025,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1106,12 +1132,14 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem52;
         private DevExpress.XtraBars.BarButtonItem barButtonItem53;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 显示属性表ToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hellpToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraBars.BarButtonItem saveBtn;
     }
 }
 

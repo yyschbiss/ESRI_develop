@@ -17,8 +17,7 @@ namespace DXApplication1
 {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        //通过一个bool实现开关
-        private bool IsEagleEyesValidate = true;
+        
         public Form1()
         {
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
@@ -276,33 +275,13 @@ namespace DXApplication1
             this.axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
         }
 
-        /*
-         * 目前还没有实现鹰眼功能的开关，此处需要进一步改进
-         * 
-        */
+        // 鹰眼功能的开关
         private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
-
-            if (!IsEagleEyesValidate)
-            {
-                axMapControl1.OnMapReplaced += axMapControl1_OnMapReplaced_1;
-                axMapControl1.OnExtentUpdated += axMapControl1_OnExtentUpdated_1;
-                axMapControl2.OnMouseDown += axMapControl2_OnMouseDown_1;
-                axMapControl2.OnMouseMove += axMapControl2_OnMouseMove_1;
-                IsEagleEyesValidate = true;
-            }
+            if (panel1.Visible == true)
+                panel1.Visible = false;
             else
-            {
-                axMapControl1.OnMapReplaced -= axMapControl1_OnMapReplaced_1;
-                axMapControl1.OnExtentUpdated -= axMapControl1_OnExtentUpdated_1;
-                axMapControl2.OnMouseDown -= axMapControl2_OnMouseDown_1;
-                axMapControl2.OnMouseMove -= axMapControl2_OnMouseMove_1;
-                //试图在
-                //axMapControl2.Map = new Map();
-                //axMapControl2.Refresh();
-                IsEagleEyesValidate = false;
-            }
+                panel1.Visible = true;
         }
 
         private void barButtonItem47_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -344,6 +323,80 @@ namespace DXApplication1
             ICommand pPan = new ControlsMapPanToolClass();
             pPan.OnCreate(axMapControl1.Object);
             axMapControl1.CurrentTool = pPan as ITool;
+        }
+
+        private void axTOCControl1_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
+        {
+
+        }
+
+        private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                SaveFileDialog pSaveFiledialog = new SaveFileDialog();
+                pSaveFiledialog.Title = "另存为";
+                pSaveFiledialog.OverwritePrompt = true;
+                pSaveFiledialog.Filter = "ArcMap文档（*.mxd）|*.mxd";
+                pSaveFiledialog.RestoreDirectory = true;
+                if (pSaveFiledialog.ShowDialog() == DialogResult.OK)
+                {
+                    string sFilePath = pSaveFiledialog.FileName;
+                    IMapDocument pMapdocument = new MapDocumentClass();
+                    pMapdocument.New(sFilePath);
+                    pMapdocument.ReplaceContents(axMapControl1.Map as IMxdContents);
+                    // Save参数1：是否保存为相对路径；参数2：是否创建缩略图
+                    pMapdocument.Save(true, true);
+                
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void saveBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try 
+            {
+                string sMxdFileName = axMapControl1.DocumentFilename;
+                IMapDocument pMapdocument = new MapDocumentClass();
+                if (sMxdFileName != null && axMapControl1.CheckMxFile(sMxdFileName))
+                {
+                    if (pMapdocument.get_IsReadOnly(sMxdFileName))
+                    {
+                        MessageBox.Show("本文档只读，不能保存。");
+                        pMapdocument.Close();
+                        return;
+                    }
+                }
+                else
+                {
+                    SaveFileDialog pSaveFileDialog = new SaveFileDialog();
+                    pSaveFileDialog.Title = "请选择保存路径";
+                    pSaveFileDialog.OverwritePrompt = true;
+                    pSaveFileDialog.Filter = "ArcMap文档（*.mxd）|*.mxd";
+                    pSaveFileDialog.RestoreDirectory = true;
+                    if (pSaveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        sMxdFileName = pSaveFileDialog.FileName;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                pMapdocument.New(sMxdFileName);
+                pMapdocument.ReplaceContents(axMapControl1.Map as IMxdContents);
+                pMapdocument.Save(pMapdocument.UsesRelativePaths, true);
+                pMapdocument.Close();
+                MessageBox.Show("保存地图成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
         }
     }
 }
