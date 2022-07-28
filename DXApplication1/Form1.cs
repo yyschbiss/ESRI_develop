@@ -13,6 +13,9 @@ using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.SystemUI;
+using GISEditor.EditTool.BasicClass;
+using GISEditor.EditTool.Tool;
+using GISEditor.EditTool.Command;
 
 namespace DXApplication1
 {
@@ -26,9 +29,10 @@ namespace DXApplication1
             InitializeComponent();
 
         }
+        #region 常量
 
-// 一系列为了TocControl右键菜单实现的常量
-// ------------------------------------
+        // 一系列为了TocControl右键菜单实现的全局变量
+        // ------------------------------------
         // 存储所点击的要素类型
         esriTOCControlItem pItem = esriTOCControlItem.esriTOCControlItemNone;
         // 地图对象
@@ -40,8 +44,26 @@ namespace DXApplication1
         // 点击的要素图层
         IFeatureLayer pTocFeatureLayer = null;
         Attribute_Form frmAttribute = null;
+
+        //-----------------------------------------
+        //一系列为了编辑功能定义的全局变量
+        private string sMxdPath = Application.StartupPath;
+        //private IMap pMap = null;
+        private IActiveView pActiveView = null;
+        private List<ILayer> plstLayers = null;
+        private IFeatureLayer pCurrentLyr = null;
+        private IEngineEditor pEngineEditor = null;
+        private IEngineEditTask pEngineEditTask = null;
+        private IEngineEditLayers pEngineEditLayers = null;
+        private bool EditBarVisibale = false;
+
+        //-----------------------------------------
         
-//-----------------------------------------
+
+
+
+
+        #endregion
         public string[] OpenShapeFile()
         {
             string[] ShpFile = new string[2];
@@ -87,7 +109,7 @@ namespace DXApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            toolStrip1.Visible = EditBarVisibale;
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -572,6 +594,15 @@ namespace DXApplication1
                  axMapControl1.ActiveView.Refresh();
             }
             
+        }
+
+        //编辑模式开关
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (EditBarVisibale == false)
+                EditBarVisibale = true;
+            else
+                EditBarVisibale = false;
         }
     }
 }

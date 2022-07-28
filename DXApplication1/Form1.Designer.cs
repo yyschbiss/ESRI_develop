@@ -85,6 +85,11 @@
             this.barButtonItem52 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem53 = new DevExpress.XtraBars.BarButtonItem();
             this.saveBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem54 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem55 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem56 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem57 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem58 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -96,9 +101,10 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup23 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup25 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup23 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup20 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup24 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -129,9 +135,17 @@
             this.axMapControl2 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.开始编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.保存编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.结束编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -142,6 +156,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -202,10 +217,15 @@
             this.barButtonItem51,
             this.barButtonItem52,
             this.barButtonItem53,
-            this.saveBtn});
+            this.saveBtn,
+            this.barButtonItem54,
+            this.barButtonItem55,
+            this.barButtonItem56,
+            this.barButtonItem57,
+            this.barButtonItem58});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ribbonControl1.MaxItemId = 78;
+            this.ribbonControl1.MaxItemId = 95;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -249,11 +269,12 @@
             // 
             // barButtonItem6
             // 
-            this.barButtonItem6.Caption = "开始编辑";
+            this.barButtonItem6.Caption = "编辑开关";
             this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
             this.barButtonItem6.Id = 25;
             this.barButtonItem6.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.LargeGlyph")));
             this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -633,6 +654,46 @@
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveBtn_ItemClick);
             // 
+            // barButtonItem54
+            // 
+            this.barButtonItem54.Caption = "选择要素";
+            this.barButtonItem54.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem54.Glyph")));
+            this.barButtonItem54.Id = 78;
+            this.barButtonItem54.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem54.LargeGlyph")));
+            this.barButtonItem54.Name = "barButtonItem54";
+            // 
+            // barButtonItem55
+            // 
+            this.barButtonItem55.Caption = "添加要素";
+            this.barButtonItem55.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem55.Glyph")));
+            this.barButtonItem55.Id = 79;
+            this.barButtonItem55.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem55.LargeGlyph")));
+            this.barButtonItem55.Name = "barButtonItem55";
+            // 
+            // barButtonItem56
+            // 
+            this.barButtonItem56.Caption = "移动节点";
+            this.barButtonItem56.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem56.Glyph")));
+            this.barButtonItem56.Id = 84;
+            this.barButtonItem56.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem56.LargeGlyph")));
+            this.barButtonItem56.Name = "barButtonItem56";
+            // 
+            // barButtonItem57
+            // 
+            this.barButtonItem57.Caption = "添加结点";
+            this.barButtonItem57.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem57.Glyph")));
+            this.barButtonItem57.Id = 85;
+            this.barButtonItem57.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem57.LargeGlyph")));
+            this.barButtonItem57.Name = "barButtonItem57";
+            // 
+            // barButtonItem58
+            // 
+            this.barButtonItem58.Caption = "删除节点";
+            this.barButtonItem58.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem58.Glyph")));
+            this.barButtonItem58.Id = 86;
+            this.barButtonItem58.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem58.LargeGlyph")));
+            this.barButtonItem58.Name = "barButtonItem58";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -706,9 +767,10 @@
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
-            this.ribbonPageGroup5,
-            this.ribbonPageGroup23,
             this.ribbonPageGroup25,
+            this.ribbonPageGroup23,
+            this.ribbonPageGroup20,
+            this.ribbonPageGroup5,
             this.ribbonPageGroup24});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "矢量操作";
@@ -729,23 +791,6 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "编辑开关";
             // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem12);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "添加要素";
-            // 
-            // ribbonPageGroup23
-            // 
-            this.ribbonPageGroup23.AllowTextClipping = false;
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem13);
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem14);
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem15);
-            this.ribbonPageGroup23.Name = "ribbonPageGroup23";
-            this.ribbonPageGroup23.Text = "更改要素";
-            // 
             // ribbonPageGroup25
             // 
             this.ribbonPageGroup25.AllowTextClipping = false;
@@ -753,6 +798,34 @@
             this.ribbonPageGroup25.ItemLinks.Add(this.barButtonItem22);
             this.ribbonPageGroup25.Name = "ribbonPageGroup25";
             this.ribbonPageGroup25.Text = "撤回与恢复";
+            // 
+            // ribbonPageGroup23
+            // 
+            this.ribbonPageGroup23.AllowTextClipping = false;
+            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem54);
+            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem13);
+            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem14);
+            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem55);
+            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem15);
+            this.ribbonPageGroup23.Name = "ribbonPageGroup23";
+            this.ribbonPageGroup23.Text = "更改要素";
+            // 
+            // ribbonPageGroup20
+            // 
+            this.ribbonPageGroup20.AllowTextClipping = false;
+            this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem56);
+            this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem57);
+            this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem58);
+            this.ribbonPageGroup20.Name = "ribbonPageGroup20";
+            this.ribbonPageGroup20.Text = "节点操作";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem12);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "添加要素";
             // 
             // ribbonPageGroup24
             // 
@@ -987,6 +1060,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.axMapControl1);
+            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -994,6 +1068,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "地图视角";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(177, 117);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(83, 22);
+            this.comboBox1.TabIndex = 8;
+            this.comboBox1.Text = "选择图层";
             // 
             // tabPage2
             // 
@@ -1022,12 +1105,67 @@
             this.panel1.Size = new System.Drawing.Size(272, 199);
             this.panel1.TabIndex = 15;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButton1,
+            this.toolStripLabel1,
+            this.toolStripComboBox1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 147);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1104, 25);
+            this.toolStrip1.TabIndex = 17;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.开始编辑ToolStripMenuItem,
+            this.保存编辑ToolStripMenuItem,
+            this.结束编辑ToolStripMenuItem});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(72, 22);
+            this.toolStripSplitButton1.Text = "编辑模式";
+            // 
+            // 开始编辑ToolStripMenuItem
+            // 
+            this.开始编辑ToolStripMenuItem.Name = "开始编辑ToolStripMenuItem";
+            this.开始编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.开始编辑ToolStripMenuItem.Text = "开始编辑";
+            // 
+            // 保存编辑ToolStripMenuItem
+            // 
+            this.保存编辑ToolStripMenuItem.Name = "保存编辑ToolStripMenuItem";
+            this.保存编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.保存编辑ToolStripMenuItem.Text = "保存编辑";
+            // 
+            // 结束编辑ToolStripMenuItem
+            // 
+            this.结束编辑ToolStripMenuItem.Name = "结束编辑ToolStripMenuItem";
+            this.结束编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.结束编辑ToolStripMenuItem.Text = "结束编辑";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(68, 22);
+            this.toolStripLabel1.Text = "编辑图层：";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            // 
             // Form1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 681);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.axTOCControl1);
@@ -1048,6 +1186,8 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1157,6 +1297,20 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraBars.BarButtonItem saveBtn;
         private System.Windows.Forms.ToolStripMenuItem 移除图层ToolStripMenuItem;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem54;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem55;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem56;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem57;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem58;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup20;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem 开始编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 保存编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 结束编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
 
