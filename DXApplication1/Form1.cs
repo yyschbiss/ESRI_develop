@@ -10,12 +10,13 @@ using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geometry;
-using ESRI.ArcGIS.Controls;
-using ESRI.ArcGIS.Display;
-using ESRI.ArcGIS.SystemUI;
 using GISEditor.EditTool.BasicClass;
 using GISEditor.EditTool.Tool;
 using GISEditor.EditTool.Command;
+using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.SystemUI;
+
 
 namespace DXApplication1
 {
@@ -36,7 +37,7 @@ namespace DXApplication1
         // 存储所点击的要素类型
         esriTOCControlItem pItem = esriTOCControlItem.esriTOCControlItemNone;
         // 地图对象
-        IBasicMap pMap = null;
+        IBasicMap ptocMap = null;
         // 图层对象
         ILayer pLayer = null;
         object unk = null;
@@ -48,7 +49,7 @@ namespace DXApplication1
         //-----------------------------------------
         //一系列为了编辑功能定义的全局变量
         private string sMxdPath = Application.StartupPath;
-        //private IMap pMap = null;
+        private IMap pMap = null;
         private IActiveView pActiveView = null;
         private List<ILayer> plstLayers = null;
         private IFeatureLayer pCurrentLyr = null;
@@ -110,6 +111,7 @@ namespace DXApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             toolStrip1.Visible = EditBarVisibale;
+            ChangeButtonState(false);
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -381,7 +383,7 @@ namespace DXApplication1
                {
 
                    // 以引用的方式传递参数，方便将值带出来
-                   axTOCControl1.HitTest(e.x, e.y, ref pItem, ref pMap, ref pLayer, ref unk, ref data);
+                   axTOCControl1.HitTest(e.x, e.y, ref pItem, ref ptocMap, ref pLayer, ref unk, ref data);
                    // 点击的要素图层
                    pTocFeatureLayer = pLayer as IFeatureLayer;
                    // 判断是否是图层要素
@@ -595,14 +597,325 @@ namespace DXApplication1
             }
             
         }
+// 此处开始图层编辑的一系列函数
+// --------------------------
+        private void ChangeButtonState(bool bEnable)
+        {
+            btnStartEdit.Enabled = !bEnable;
+            btnSaveEdit.Enabled = bEnable;
+            btnEndEdit.Enabled = bEnable;
+
+            cmbSelLayer.Enabled = bEnable;
+
+            btnSelFeat.Enabled = bEnable;
+            btnSelMove.Enabled = bEnable;
+            btnAddFeature.Enabled = bEnable;
+            btnDelFeature.Enabled = bEnable;
+            btnAttributeEdit.Enabled = bEnable;
+            btnUndo.Enabled = bEnable;
+            btnRedo.Enabled = bEnable;
+            btnMoveVertex.Enabled = bEnable;
+            btnAddVertex.Enabled = bEnable;
+            btnDelVertex.Enabled = bEnable;
+        }
+
+        private void InitEditObject()
+        {
+            try
+            {
+                ChangeButtonState(false);
+                pEngineEditor = new EngineEditorClass();
+                MapManager.EngineEditor = pEngineEditor;
+                pEngineEditTask = pEngineEditor as IEngineEditTask;
+                pEngineEditLayers = pEngineEditor as IEngineEditLayers;
+
+                pMap = axMapControl1.Map;
+                pActiveView = pMap as IActiveView;
+                plstLayers = MapManager.GetLayers(pMap);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void InitComboBox(List<ILayer> plstLyr)
+        {
+            cmbSelLayer.Items.Clear();
+            for (int i = 0; i < plstLyr.Count; i++)
+            {
+                if (!cmbSelLayer.Items.Contains(plstLyr[i].Name))
+                {
+                    cmbSelLayer.Items.Add(plstLyr[i].Name);
+                }
+            }
+            if (cmbSelLayer.Items.Count != 0) cmbSelLayer.SelectedIndex = 0;
+        }
 
         //编辑模式开关
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            InitEditObject();
             if (EditBarVisibale == false)
+            {
+                toolStrip1.Visible = true;
                 EditBarVisibale = true;
+            }
             else
+            {
                 EditBarVisibale = false;
+                toolStrip1.Visible = false;
+            }
+        }
+
+
+        private void btnStartEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (plstLayers == null || plstLayers.Count == 0)
+                {
+                    MessageBox.Show("请加载编辑图层！", "提示",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                pMap.ClearSelection();
+                pActiveView.Refresh();
+                InitComboBox(plstLayers);
+                ChangeButtonState(true);
+                //如果编辑已经开始，则直接退出
+                if (pEngineEditor.EditState != esriEngineEditState.esriEngineStateNotEditing)
+                    return;
+                if (pCurrentLyr == null) return;
+                //获取当前编辑图层工作空间
+                IDataset pDataSet = pCurrentLyr.FeatureClass as IDataset;
+                IWorkspace pWs = pDataSet.Workspace;
+                //设置编辑模式，如果是ArcSDE采用版本模式
+                if (pWs.Type == esriWorkspaceType.esriRemoteDatabaseWorkspace)
+                {
+                    pEngineEditor.EditSessionMode = esriEngineEditSessionMode.esriEngineEditSessionModeVersioned;
+                }
+                else
+                {
+                    pEngineEditor.EditSessionMode = esriEngineEditSessionMode.esriEngineEditSessionModeNonVersioned;
+                }
+                //设置编辑任务
+                pEngineEditTask = pEngineEditor.GetTaskByUniqueName("ControlToolsEditing_CreateNewFeatureTask");
+                pEngineEditor.CurrentTask = pEngineEditTask;// 设置编辑任务
+                pEngineEditor.EnableUndoRedo(true); //是否可以进行撤销、恢复操作
+                pEngineEditor.StartEditing(pWs, pMap); //开始编辑操作
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnSaveEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_saveEditCom = new SaveEditCommandClass();
+                m_saveEditCom.OnCreate(axMapControl1.Object);
+                m_saveEditCom.OnClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnEndEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_stopEditCom = new StopEditCommandClass();
+                m_stopEditCom.OnCreate(axMapControl1.Object);
+                m_stopEditCom.OnClick();
+                ChangeButtonState(false);
+                axMapControl1.CurrentTool = null;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerDefault;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnSelFeat_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_SelTool = new SelectFeatureToolClass();
+                m_SelTool.OnCreate(axMapControl1.Object);
+                m_SelTool.OnClick();
+                
+                axMapControl1.CurrentTool = m_SelTool as ITool;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnSelMove_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_moveTool = new MoveFeatureToolClass();
+                m_moveTool.OnCreate(axMapControl1.Object);
+                m_moveTool.OnClick();
+                axMapControl1.CurrentTool = m_moveTool as ITool;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnUndo_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrow;
+                ICommand m_undoCommand = new UndoCommandClass();
+                m_undoCommand.OnCreate(axMapControl1.Object);
+                m_undoCommand.OnClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnRedo_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrow;
+                ICommand m_redoCommand = new RedoCommandClass();
+                m_redoCommand.OnCreate(axMapControl1.Object);
+                m_redoCommand.OnClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnAddFeature_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_CreateFeatTool = new CreateFeatureToolClass();
+                m_CreateFeatTool.OnCreate(axMapControl1.Object);
+                m_CreateFeatTool.OnClick();
+                axMapControl1.CurrentTool = m_CreateFeatTool as ITool;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnDelFeature_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrow;
+                ICommand m_delFeatCom = new DelFeatureCommandClass();
+                m_delFeatCom.OnCreate(axMapControl1.Object);
+                m_delFeatCom.OnClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnAttributeEdit_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_AtrributeCom = new EditAtrributeToolClass();
+                m_AtrributeCom.OnCreate(axMapControl1.Object);
+                m_AtrributeCom.OnClick();
+                axMapControl1.CurrentTool = m_AtrributeCom as ITool;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnMoveVertex_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_MoveVertexTool = new MoveVertexToolClass();
+                m_MoveVertexTool.OnCreate(axMapControl1.Object);
+                axMapControl1.CurrentTool = m_MoveVertexTool as ITool;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnAddVertex_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_AddVertexTool = new AddVertexToolClass();
+                m_AddVertexTool.OnCreate(axMapControl1.Object);
+                axMapControl1.CurrentTool = m_AddVertexTool as ITool;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnDelVertex_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ICommand m_DelVertexTool = new DelVertexToolClass();
+                m_DelVertexTool.OnCreate(axMapControl1.Object);
+                axMapControl1.CurrentTool = m_DelVertexTool as ITool;
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void cmbSelLayer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string sLyrName = cmbSelLayer.SelectedItem.ToString();
+                pCurrentLyr = MapManager.GetLayerByName(pMap, sLyrName) as IFeatureLayer;
+                //设置编辑目标图层
+                pEngineEditLayers.SetTargetLayer(pCurrentLyr, 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了:" + ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Editchosebtn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

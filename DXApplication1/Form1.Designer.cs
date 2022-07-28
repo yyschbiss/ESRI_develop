@@ -36,23 +36,21 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSelMove = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelFeature = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAttributeEdit = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRedo = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
@@ -85,11 +83,11 @@
             this.barButtonItem52 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem53 = new DevExpress.XtraBars.BarButtonItem();
             this.saveBtn = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem54 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem55 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem56 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem57 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem58 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSelFeat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAddFeature = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMoveVertex = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAddVertex = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelVertex = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -141,11 +139,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.开始编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.结束编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnStartEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSaveEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEndEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.cmbSelLayer = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -169,23 +167,21 @@
             this.barButtonItem4,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.barButtonItem7,
-            this.barButtonItem8,
             this.barButtonItem9,
             this.barButtonItem10,
             this.barButtonItem11,
             this.barButtonItem12,
-            this.barButtonItem13,
-            this.barButtonItem14,
-            this.barButtonItem15,
+            this.btnSelMove,
+            this.btnDelFeature,
+            this.btnAttributeEdit,
             this.barButtonItem1,
             this.barButtonItem16,
             this.barButtonItem17,
             this.barButtonItem18,
             this.barButtonItem19,
             this.barButtonItem20,
-            this.barButtonItem21,
-            this.barButtonItem22,
+            this.btnUndo,
+            this.btnRedo,
             this.barButtonItem23,
             this.barButtonItem24,
             this.barButtonItem25,
@@ -218,11 +214,11 @@
             this.barButtonItem52,
             this.barButtonItem53,
             this.saveBtn,
-            this.barButtonItem54,
-            this.barButtonItem55,
-            this.barButtonItem56,
-            this.barButtonItem57,
-            this.barButtonItem58});
+            this.btnSelFeat,
+            this.btnAddFeature,
+            this.btnMoveVertex,
+            this.btnAddVertex,
+            this.btnDelVertex});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ribbonControl1.MaxItemId = 95;
@@ -276,22 +272,6 @@
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "保存编辑";
-            this.barButtonItem7.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.Glyph")));
-            this.barButtonItem7.Id = 26;
-            this.barButtonItem7.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.LargeGlyph")));
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "结束编辑";
-            this.barButtonItem8.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.Glyph")));
-            this.barButtonItem8.Id = 27;
-            this.barButtonItem8.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.LargeGlyph")));
-            this.barButtonItem8.Name = "barButtonItem8";
-            // 
             // barButtonItem9
             // 
             this.barButtonItem9.Caption = "建立缓冲区";
@@ -321,27 +301,30 @@
             this.barButtonItem12.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.LargeGlyph")));
             this.barButtonItem12.Name = "barButtonItem12";
             // 
-            // barButtonItem13
+            // btnSelMove
             // 
-            this.barButtonItem13.Caption = "移动要素";
-            this.barButtonItem13.Id = 32;
-            this.barButtonItem13.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.LargeGlyph")));
-            this.barButtonItem13.Name = "barButtonItem13";
+            this.btnSelMove.Caption = "移动要素";
+            this.btnSelMove.Id = 32;
+            this.btnSelMove.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnSelMove.LargeGlyph")));
+            this.btnSelMove.Name = "btnSelMove";
+            this.btnSelMove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSelMove_ItemClick);
             // 
-            // barButtonItem14
+            // btnDelFeature
             // 
-            this.barButtonItem14.Caption = "删除要素";
-            this.barButtonItem14.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem14.Glyph")));
-            this.barButtonItem14.Id = 33;
-            this.barButtonItem14.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem14.LargeGlyph")));
-            this.barButtonItem14.Name = "barButtonItem14";
+            this.btnDelFeature.Caption = "删除要素";
+            this.btnDelFeature.Glyph = ((System.Drawing.Image)(resources.GetObject("btnDelFeature.Glyph")));
+            this.btnDelFeature.Id = 33;
+            this.btnDelFeature.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDelFeature.LargeGlyph")));
+            this.btnDelFeature.Name = "btnDelFeature";
+            this.btnDelFeature.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelFeature_ItemClick);
             // 
-            // barButtonItem15
+            // btnAttributeEdit
             // 
-            this.barButtonItem15.Caption = "属性修改";
-            this.barButtonItem15.Id = 34;
-            this.barButtonItem15.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.LargeGlyph")));
-            this.barButtonItem15.Name = "barButtonItem15";
+            this.btnAttributeEdit.Caption = "属性修改";
+            this.btnAttributeEdit.Id = 34;
+            this.btnAttributeEdit.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnAttributeEdit.LargeGlyph")));
+            this.btnAttributeEdit.Name = "btnAttributeEdit";
+            this.btnAttributeEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAttributeEdit_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -394,21 +377,23 @@
             this.barButtonItem20.Name = "barButtonItem20";
             this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
             // 
-            // barButtonItem21
+            // btnUndo
             // 
-            this.barButtonItem21.Caption = "撤回";
-            this.barButtonItem21.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem21.Glyph")));
-            this.barButtonItem21.Id = 43;
-            this.barButtonItem21.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem21.LargeGlyph")));
-            this.barButtonItem21.Name = "barButtonItem21";
+            this.btnUndo.Caption = "撤回";
+            this.btnUndo.Glyph = ((System.Drawing.Image)(resources.GetObject("btnUndo.Glyph")));
+            this.btnUndo.Id = 43;
+            this.btnUndo.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnUndo.LargeGlyph")));
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUndo_ItemClick);
             // 
-            // barButtonItem22
+            // btnRedo
             // 
-            this.barButtonItem22.Caption = "恢复";
-            this.barButtonItem22.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.Glyph")));
-            this.barButtonItem22.Id = 44;
-            this.barButtonItem22.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.LargeGlyph")));
-            this.barButtonItem22.Name = "barButtonItem22";
+            this.btnRedo.Caption = "恢复";
+            this.btnRedo.Glyph = ((System.Drawing.Image)(resources.GetObject("btnRedo.Glyph")));
+            this.btnRedo.Id = 44;
+            this.btnRedo.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnRedo.LargeGlyph")));
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRedo_ItemClick);
             // 
             // barButtonItem23
             // 
@@ -654,45 +639,50 @@
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveBtn_ItemClick);
             // 
-            // barButtonItem54
+            // btnSelFeat
             // 
-            this.barButtonItem54.Caption = "选择要素";
-            this.barButtonItem54.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem54.Glyph")));
-            this.barButtonItem54.Id = 78;
-            this.barButtonItem54.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem54.LargeGlyph")));
-            this.barButtonItem54.Name = "barButtonItem54";
+            this.btnSelFeat.Caption = "选择要素";
+            this.btnSelFeat.Glyph = ((System.Drawing.Image)(resources.GetObject("btnSelFeat.Glyph")));
+            this.btnSelFeat.Id = 78;
+            this.btnSelFeat.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnSelFeat.LargeGlyph")));
+            this.btnSelFeat.Name = "btnSelFeat";
+            this.btnSelFeat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSelFeat_ItemClick);
             // 
-            // barButtonItem55
+            // btnAddFeature
             // 
-            this.barButtonItem55.Caption = "添加要素";
-            this.barButtonItem55.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem55.Glyph")));
-            this.barButtonItem55.Id = 79;
-            this.barButtonItem55.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem55.LargeGlyph")));
-            this.barButtonItem55.Name = "barButtonItem55";
+            this.btnAddFeature.Caption = "添加要素";
+            this.btnAddFeature.Glyph = ((System.Drawing.Image)(resources.GetObject("btnAddFeature.Glyph")));
+            this.btnAddFeature.Id = 79;
+            this.btnAddFeature.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnAddFeature.LargeGlyph")));
+            this.btnAddFeature.Name = "btnAddFeature";
+            this.btnAddFeature.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddFeature_ItemClick);
             // 
-            // barButtonItem56
+            // btnMoveVertex
             // 
-            this.barButtonItem56.Caption = "移动节点";
-            this.barButtonItem56.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem56.Glyph")));
-            this.barButtonItem56.Id = 84;
-            this.barButtonItem56.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem56.LargeGlyph")));
-            this.barButtonItem56.Name = "barButtonItem56";
+            this.btnMoveVertex.Caption = "移动节点";
+            this.btnMoveVertex.Glyph = ((System.Drawing.Image)(resources.GetObject("btnMoveVertex.Glyph")));
+            this.btnMoveVertex.Id = 84;
+            this.btnMoveVertex.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnMoveVertex.LargeGlyph")));
+            this.btnMoveVertex.Name = "btnMoveVertex";
+            this.btnMoveVertex.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMoveVertex_ItemClick);
             // 
-            // barButtonItem57
+            // btnAddVertex
             // 
-            this.barButtonItem57.Caption = "添加结点";
-            this.barButtonItem57.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem57.Glyph")));
-            this.barButtonItem57.Id = 85;
-            this.barButtonItem57.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem57.LargeGlyph")));
-            this.barButtonItem57.Name = "barButtonItem57";
+            this.btnAddVertex.Caption = "添加结点";
+            this.btnAddVertex.Glyph = ((System.Drawing.Image)(resources.GetObject("btnAddVertex.Glyph")));
+            this.btnAddVertex.Id = 85;
+            this.btnAddVertex.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnAddVertex.LargeGlyph")));
+            this.btnAddVertex.Name = "btnAddVertex";
+            this.btnAddVertex.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddVertex_ItemClick);
             // 
-            // barButtonItem58
+            // btnDelVertex
             // 
-            this.barButtonItem58.Caption = "删除节点";
-            this.barButtonItem58.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem58.Glyph")));
-            this.barButtonItem58.Id = 86;
-            this.barButtonItem58.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem58.LargeGlyph")));
-            this.barButtonItem58.Name = "barButtonItem58";
+            this.btnDelVertex.Caption = "删除节点";
+            this.btnDelVertex.Glyph = ((System.Drawing.Image)(resources.GetObject("btnDelVertex.Glyph")));
+            this.btnDelVertex.Id = 86;
+            this.btnDelVertex.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDelVertex.LargeGlyph")));
+            this.btnDelVertex.Name = "btnDelVertex";
+            this.btnDelVertex.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelVertex_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -786,36 +776,34 @@
             // 
             this.ribbonPageGroup4.AllowTextClipping = false;
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem6);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "编辑开关";
             // 
             // ribbonPageGroup25
             // 
             this.ribbonPageGroup25.AllowTextClipping = false;
-            this.ribbonPageGroup25.ItemLinks.Add(this.barButtonItem21);
-            this.ribbonPageGroup25.ItemLinks.Add(this.barButtonItem22);
+            this.ribbonPageGroup25.ItemLinks.Add(this.btnUndo);
+            this.ribbonPageGroup25.ItemLinks.Add(this.btnRedo);
             this.ribbonPageGroup25.Name = "ribbonPageGroup25";
             this.ribbonPageGroup25.Text = "撤回与恢复";
             // 
             // ribbonPageGroup23
             // 
             this.ribbonPageGroup23.AllowTextClipping = false;
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem54);
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem13);
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem14);
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem55);
-            this.ribbonPageGroup23.ItemLinks.Add(this.barButtonItem15);
+            this.ribbonPageGroup23.ItemLinks.Add(this.btnSelFeat);
+            this.ribbonPageGroup23.ItemLinks.Add(this.btnSelMove);
+            this.ribbonPageGroup23.ItemLinks.Add(this.btnDelFeature);
+            this.ribbonPageGroup23.ItemLinks.Add(this.btnAddFeature);
+            this.ribbonPageGroup23.ItemLinks.Add(this.btnAttributeEdit);
             this.ribbonPageGroup23.Name = "ribbonPageGroup23";
             this.ribbonPageGroup23.Text = "更改要素";
             // 
             // ribbonPageGroup20
             // 
             this.ribbonPageGroup20.AllowTextClipping = false;
-            this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem56);
-            this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem57);
-            this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem58);
+            this.ribbonPageGroup20.ItemLinks.Add(this.btnMoveVertex);
+            this.ribbonPageGroup20.ItemLinks.Add(this.btnAddVertex);
+            this.ribbonPageGroup20.ItemLinks.Add(this.btnDelVertex);
             this.ribbonPageGroup20.Name = "ribbonPageGroup20";
             this.ribbonPageGroup20.Text = "节点操作";
             // 
@@ -999,7 +987,6 @@
             this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
             this.axMapControl1.Size = new System.Drawing.Size(815, 500);
             this.axMapControl1.TabIndex = 7;
-            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
             this.axMapControl1.OnExtentUpdated += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnExtentUpdatedEventHandler(this.axMapControl1_OnExtentUpdated_1);
             this.axMapControl1.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.axMapControl1_OnMapReplaced_1);
             // 
@@ -1107,13 +1094,14 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButton1,
             this.toolStripLabel1,
-            this.toolStripComboBox1});
+            this.cmbSelLayer});
             this.toolStrip1.Location = new System.Drawing.Point(0, 147);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1104, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(275, 25);
             this.toolStrip1.TabIndex = 17;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -1121,32 +1109,36 @@
             // 
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.开始编辑ToolStripMenuItem,
-            this.保存编辑ToolStripMenuItem,
-            this.结束编辑ToolStripMenuItem});
+            this.btnStartEdit,
+            this.btnSaveEdit,
+            this.btnEndEdit});
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(72, 22);
             this.toolStripSplitButton1.Text = "编辑模式";
+            
             // 
-            // 开始编辑ToolStripMenuItem
+            // btnStartEdit
             // 
-            this.开始编辑ToolStripMenuItem.Name = "开始编辑ToolStripMenuItem";
-            this.开始编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.开始编辑ToolStripMenuItem.Text = "开始编辑";
+            this.btnStartEdit.Name = "btnStartEdit";
+            this.btnStartEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnStartEdit.Text = "开始编辑";
+            this.btnStartEdit.Click += new System.EventHandler(this.btnStartEdit_Click);
             // 
-            // 保存编辑ToolStripMenuItem
+            // btnSaveEdit
             // 
-            this.保存编辑ToolStripMenuItem.Name = "保存编辑ToolStripMenuItem";
-            this.保存编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.保存编辑ToolStripMenuItem.Text = "保存编辑";
+            this.btnSaveEdit.Name = "btnSaveEdit";
+            this.btnSaveEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnSaveEdit.Text = "保存编辑";
+            this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
             // 
-            // 结束编辑ToolStripMenuItem
+            // btnEndEdit
             // 
-            this.结束编辑ToolStripMenuItem.Name = "结束编辑ToolStripMenuItem";
-            this.结束编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.结束编辑ToolStripMenuItem.Text = "结束编辑";
+            this.btnEndEdit.Name = "btnEndEdit";
+            this.btnEndEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnEndEdit.Text = "结束编辑";
+            this.btnEndEdit.Click += new System.EventHandler(this.btnEndEdit_Click);
             // 
             // toolStripLabel1
             // 
@@ -1154,10 +1146,11 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(68, 22);
             this.toolStripLabel1.Text = "编辑图层：";
             // 
-            // toolStripComboBox1
+            // cmbSelLayer
             // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.cmbSelLayer.Name = "cmbSelLayer";
+            this.cmbSelLayer.Size = new System.Drawing.Size(121, 25);
+            this.cmbSelLayer.SelectedIndexChanged += new System.EventHandler(this.cmbSelLayer_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -1232,15 +1225,13 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem13;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem14;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem15;
+        private DevExpress.XtraBars.BarButtonItem btnSelMove;
+        private DevExpress.XtraBars.BarButtonItem btnDelFeature;
+        private DevExpress.XtraBars.BarButtonItem btnAttributeEdit;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup21;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup22;
         private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
@@ -1251,8 +1242,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraBars.BarButtonItem barButtonItem19;
         private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem21;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
+        private DevExpress.XtraBars.BarButtonItem btnUndo;
+        private DevExpress.XtraBars.BarButtonItem btnRedo;
         private DevExpress.XtraBars.BarButtonItem barButtonItem23;
         private DevExpress.XtraBars.BarButtonItem barButtonItem24;
         private DevExpress.XtraBars.BarButtonItem barButtonItem25;
@@ -1297,20 +1288,20 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraBars.BarButtonItem saveBtn;
         private System.Windows.Forms.ToolStripMenuItem 移除图层ToolStripMenuItem;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem54;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem55;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem56;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem57;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem58;
+        private DevExpress.XtraBars.BarButtonItem btnSelFeat;
+        private DevExpress.XtraBars.BarButtonItem btnAddFeature;
+        private DevExpress.XtraBars.BarButtonItem btnMoveVertex;
+        private DevExpress.XtraBars.BarButtonItem btnAddVertex;
+        private DevExpress.XtraBars.BarButtonItem btnDelVertex;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup20;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem 开始编辑ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 保存编辑ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 结束编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnStartEdit;
+        private System.Windows.Forms.ToolStripMenuItem btnSaveEdit;
+        private System.Windows.Forms.ToolStripMenuItem btnEndEdit;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox cmbSelLayer;
     }
 }
 

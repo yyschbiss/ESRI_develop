@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using ESRI.ArcGIS.esriSystem;
+using GISEditor.EditTool.BasicClass;
 
 namespace DXApplication1
 {
@@ -25,7 +26,9 @@ namespace DXApplication1
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new Form1());
+            Form1 form1 = new Form1();
+            MapManager.ToolPlatForm = form1;
+            Application.Run(form1);
             //ESRI License Initializer generated code.
             //Do not make any call to ArcObjects after ShutDownApplication()
             m_AOLicenseInitializer.ShutdownApplication();
