@@ -936,5 +936,13 @@ namespace DXApplication1
             ImageViewer IsViewer = new ImageViewer("Ic");
             IsViewer.Show();
         }
+
+        private void barButtonItem39_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SheetViewer mSheetViewer = new SheetViewer();
+            mSheetViewer.Show();
+            //这边预想应该传入一个参数表示要打开的表格
+            //或者我们所有的表格都在一起，在excel中很多Sheet，然后默认打开？
+        }
     }
 }
