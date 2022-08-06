@@ -104,13 +104,9 @@
             this.ribbonPageGroup20 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup24 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup28 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup29 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup35 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -119,9 +115,6 @@
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup35 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup22 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -227,10 +220,9 @@
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage3,
-            this.ribbonPage4,
+            this.ribbonPage6,
             this.ribbonPage5,
             this.ribbonPage7,
-            this.ribbonPage6,
             this.ribbonPage8});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbonControl1.Size = new System.Drawing.Size(1104, 147);
@@ -485,7 +477,7 @@
             // 
             // barButtonItem35
             // 
-            this.barButtonItem35.Caption = "计算沉降指数";
+            this.barButtonItem35.Caption = "沉降指数Is";
             this.barButtonItem35.Id = 57;
             this.barButtonItem35.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem35.LargeGlyph")));
             this.barButtonItem35.Name = "barButtonItem35";
@@ -493,27 +485,30 @@
             // 
             // barButtonItem36
             // 
-            this.barButtonItem36.Caption = "计算风险区域";
+            this.barButtonItem36.Caption = "Ir";
             this.barButtonItem36.Id = 58;
             this.barButtonItem36.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem36.LargeGlyph")));
             this.barButtonItem36.Name = "barButtonItem36";
+            this.barButtonItem36.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem36_ItemClick);
             // 
             // barButtonItem37
             // 
-            this.barButtonItem37.Caption = "计算环境承受力";
+            this.barButtonItem37.Caption = "环境承受力Ia";
             this.barButtonItem37.Id = 59;
             this.barButtonItem37.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem37.LargeGlyph")));
             this.barButtonItem37.Name = "barButtonItem37";
+            this.barButtonItem37.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem37_ItemClick);
             // 
             // barButtonItem38
             // 
-            this.barButtonItem38.Caption = "计算综合风险指数";
+            this.barButtonItem38.Caption = "综合风险指数Ic";
             this.barButtonItem38.Id = 60;
             this.barButtonItem38.Name = "barButtonItem38";
+            this.barButtonItem38.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem38_ItemClick);
             // 
             // barButtonItem39
             // 
-            this.barButtonItem39.Caption = "计算经济损失";
+            this.barButtonItem39.Caption = "经济损失";
             this.barButtonItem39.Id = 61;
             this.barButtonItem39.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem39.LargeGlyph")));
             this.barButtonItem39.Name = "barButtonItem39";
@@ -822,58 +817,29 @@
             this.ribbonPageGroup24.Name = "ribbonPageGroup24";
             this.ribbonPageGroup24.Text = "裁剪";
             // 
-            // ribbonPage4
+            // ribbonPage6
             // 
-            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup6,
-            this.ribbonPageGroup7,
-            this.ribbonPageGroup8,
-            this.ribbonPageGroup28,
-            this.ribbonPageGroup29,
-            this.ribbonPageGroup17});
-            this.ribbonPage4.Name = "ribbonPage4";
-            this.ribbonPage4.Text = "数据处理";
+            this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup14,
+            this.ribbonPageGroup35});
+            this.ribbonPage6.Name = "ribbonPage6";
+            this.ribbonPage6.Text = "制图";
             // 
-            // ribbonPageGroup6
+            // ribbonPageGroup14
             // 
-            this.ribbonPageGroup6.AllowTextClipping = false;
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem24);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "投影矫正";
+            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem41);
+            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem42);
+            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem43);
+            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem44);
+            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
+            this.ribbonPageGroup14.Text = "制图功能";
             // 
-            // ribbonPageGroup7
+            // ribbonPageGroup35
             // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem25);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "温度反演";
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem26);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "坡度计算";
-            // 
-            // ribbonPageGroup28
-            // 
-            this.ribbonPageGroup28.ItemLinks.Add(this.barButtonItem27);
-            this.ribbonPageGroup28.Name = "ribbonPageGroup28";
-            this.ribbonPageGroup28.Text = "NDVI";
-            // 
-            // ribbonPageGroup29
-            // 
-            this.ribbonPageGroup29.ItemLinks.Add(this.barButtonItem29);
-            this.ribbonPageGroup29.ItemLinks.Add(this.barButtonItem30);
-            this.ribbonPageGroup29.ItemLinks.Add(this.barButtonItem31);
-            this.ribbonPageGroup29.ItemLinks.Add(this.barButtonItem32);
-            this.ribbonPageGroup29.Name = "ribbonPageGroup29";
-            this.ribbonPageGroup29.Text = "DDT";
-            // 
-            // ribbonPageGroup17
-            // 
-            this.ribbonPageGroup17.AllowTextClipping = false;
-            this.ribbonPageGroup17.ItemLinks.Add(this.barButtonItem28);
-            this.ribbonPageGroup17.Name = "ribbonPageGroup17";
-            this.ribbonPageGroup17.Text = "缓冲区分析";
+            this.ribbonPageGroup35.AllowTextClipping = false;
+            this.ribbonPageGroup35.ItemLinks.Add(this.barButtonItem45);
+            this.ribbonPageGroup35.Name = "ribbonPageGroup35";
+            this.ribbonPageGroup35.Text = "输出";
             // 
             // ribbonPage5
             // 
@@ -883,7 +849,7 @@
             this.ribbonPageGroup11,
             this.ribbonPageGroup32});
             this.ribbonPage5.Name = "ribbonPage5";
-            this.ribbonPage5.Text = "指数计算";
+            this.ribbonPage5.Text = "指数计算结果";
             // 
             // ribbonPageGroup9
             // 
@@ -933,29 +899,6 @@
             this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem40);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             this.ribbonPageGroup13.Text = "冻土融沉风险经济评估";
-            // 
-            // ribbonPage6
-            // 
-            this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup14,
-            this.ribbonPageGroup35});
-            this.ribbonPage6.Name = "ribbonPage6";
-            this.ribbonPage6.Text = "制图";
-            // 
-            // ribbonPageGroup14
-            // 
-            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem41);
-            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem42);
-            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem43);
-            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem44);
-            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            this.ribbonPageGroup14.Text = "制图功能";
-            // 
-            // ribbonPageGroup35
-            // 
-            this.ribbonPageGroup35.ItemLinks.Add(this.barButtonItem45);
-            this.ribbonPageGroup35.Name = "ribbonPageGroup35";
-            this.ribbonPageGroup35.Text = "输出图像";
             // 
             // ribbonPage8
             // 
@@ -1117,26 +1060,25 @@
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(72, 22);
             this.toolStripSplitButton1.Text = "编辑模式";
-            
             // 
             // btnStartEdit
             // 
             this.btnStartEdit.Name = "btnStartEdit";
-            this.btnStartEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnStartEdit.Size = new System.Drawing.Size(124, 22);
             this.btnStartEdit.Text = "开始编辑";
             this.btnStartEdit.Click += new System.EventHandler(this.btnStartEdit_Click);
             // 
             // btnSaveEdit
             // 
             this.btnSaveEdit.Name = "btnSaveEdit";
-            this.btnSaveEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnSaveEdit.Size = new System.Drawing.Size(124, 22);
             this.btnSaveEdit.Text = "保存编辑";
             this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
             // 
             // btnEndEdit
             // 
             this.btnEndEdit.Name = "btnEndEdit";
-            this.btnEndEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnEndEdit.Size = new System.Drawing.Size(124, 22);
             this.btnEndEdit.Text = "结束编辑";
             this.btnEndEdit.Click += new System.EventHandler(this.btnEndEdit_Click);
             // 
@@ -1193,7 +1135,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
@@ -1202,9 +1143,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup19;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
@@ -1218,8 +1156,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup23;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup25;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup24;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup28;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup29;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup32;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup35;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
@@ -1254,7 +1190,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem30;
         private DevExpress.XtraBars.BarButtonItem barButtonItem31;
         private DevExpress.XtraBars.BarButtonItem barButtonItem32;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
         private DevExpress.XtraBars.BarButtonItem barButtonItem33;
         private DevExpress.XtraBars.BarButtonItem barButtonItem34;
         private DevExpress.XtraBars.BarButtonItem barButtonItem35;

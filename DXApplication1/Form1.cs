@@ -131,7 +131,8 @@ namespace DXApplication1
 
         private void barButtonItem35_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            ImageViewer IsViewer = new ImageViewer("Is");
+            IsViewer.Show();
         }
 
         private void barButtonItem33_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -916,6 +917,24 @@ namespace DXApplication1
         private void Editchosebtn_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void barButtonItem36_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ImageViewer IsViewer = new ImageViewer("Ir");
+            IsViewer.Show();
+        }
+
+        private void barButtonItem37_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ImageViewer IsViewer = new ImageViewer("Ia");
+            IsViewer.Show();
+        }
+
+        private void barButtonItem38_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ImageViewer IsViewer = new ImageViewer("Ic");
+            IsViewer.Show();
         }
     }
 }
