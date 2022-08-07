@@ -12,6 +12,7 @@
 *.cache
 *.ilk
 *.log
+*.lock
 [Bb]in
 [Dd]ebug*/
 *.lib
