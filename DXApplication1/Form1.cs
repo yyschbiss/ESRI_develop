@@ -1294,6 +1294,11 @@ namespace DXApplication1
             IsViewer.Show();
         }
 
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
 
     }
 }
