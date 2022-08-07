@@ -137,6 +137,12 @@
     <Compile Include="AboutUS.Designer.cs">
       <DependentUpon>AboutUS.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTitle.Designer.cs">
+      <DependentUpon>AddTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Attribute_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="AboutUS.resx">
       <DependentUpon>AboutUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTitle.resx">
+      <DependentUpon>AddTitle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Attribute_Form.resx">
       <DependentUpon>Attribute_Form.cs</DependentUpon>

@@ -528,6 +528,7 @@
             this.barButtonItem41.Id = 63;
             this.barButtonItem41.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem41.LargeGlyph")));
             this.barButtonItem41.Name = "barButtonItem41";
+            this.barButtonItem41.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem41_ItemClick);
             // 
             // barButtonItem42
             // 
@@ -535,6 +536,7 @@
             this.barButtonItem42.Id = 64;
             this.barButtonItem42.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem42.LargeGlyph")));
             this.barButtonItem42.Name = "barButtonItem42";
+            this.barButtonItem42.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem42_ItemClick);
             // 
             // barButtonItem43
             // 
@@ -542,6 +544,7 @@
             this.barButtonItem43.Id = 65;
             this.barButtonItem43.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem43.LargeGlyph")));
             this.barButtonItem43.Name = "barButtonItem43";
+            this.barButtonItem43.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem43_ItemClick);
             // 
             // barButtonItem44
             // 
@@ -549,6 +552,7 @@
             this.barButtonItem44.Id = 66;
             this.barButtonItem44.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem44.LargeGlyph")));
             this.barButtonItem44.Name = "barButtonItem44";
+            this.barButtonItem44.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem44_ItemClick);
             // 
             // barButtonItem45
             // 
@@ -557,6 +561,7 @@
             this.barButtonItem45.Id = 68;
             this.barButtonItem45.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem45.LargeGlyph")));
             this.barButtonItem45.Name = "barButtonItem45";
+            this.barButtonItem45.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem45_ItemClick);
             // 
             // barButtonItem46
             // 
@@ -931,6 +936,8 @@
             this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
             this.axMapControl1.Size = new System.Drawing.Size(815, 500);
             this.axMapControl1.TabIndex = 7;
+            this.axMapControl1.OnViewRefreshed += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnViewRefreshedEventHandler(this.axMapControl1_OnViewRefreshed);
+            this.axMapControl1.OnAfterScreenDraw += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnAfterScreenDrawEventHandler(this.axMapControl1_OnAfterScreenDraw);
             this.axMapControl1.OnExtentUpdated += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnExtentUpdatedEventHandler(this.axMapControl1_OnExtentUpdated_1);
             this.axMapControl1.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.axMapControl1_OnMapReplaced_1);
             // 
