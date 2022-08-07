@@ -11,17 +11,21 @@ using DevExpress.XtraEditors;
 
 namespace DXApplication1
 {
-    public partial class SheetViewer : DevExpress.XtraEditors.XtraForm
+    public partial class HelpForm : DevExpress.XtraEditors.XtraForm
     {
-        public SheetViewer()
+        public HelpForm()
         {
             InitializeComponent();
         }
 
-        private void SheetViewer_Load(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string docPath = "../../../Resources/sheet/cost.xlsx";
-            spreadsheetControl1.LoadDocument(docPath);
+
+        }
+
+        private void HelpForm_Load(object sender, EventArgs e)
+        {
+            this.richTextBox1.Enabled = false;
         }
     }
 }

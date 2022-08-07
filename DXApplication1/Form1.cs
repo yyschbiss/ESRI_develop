@@ -224,7 +224,7 @@ namespace DXApplication1
 
         private void barButtonItem19_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            MessageBox.Show("请在图层列表中右键你所需要查看的图层，并选择查看属性表。");
         }
 
         //指针
@@ -1297,6 +1297,12 @@ namespace DXApplication1
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void barButtonItem34_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            HelpForm mHelpForm = new HelpForm();
+            mHelpForm.Show();
         }
 
 

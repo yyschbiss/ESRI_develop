@@ -474,6 +474,7 @@
             this.barButtonItem34.Id = 56;
             this.barButtonItem34.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem34.LargeGlyph")));
             this.barButtonItem34.Name = "barButtonItem34";
+            this.barButtonItem34.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem34_ItemClick);
             // 
             // barButtonItem35
             // 
@@ -503,6 +504,7 @@
             // 
             this.barButtonItem38.Caption = "综合风险指数Ic";
             this.barButtonItem38.Id = 60;
+            this.barButtonItem38.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem38.LargeGlyph")));
             this.barButtonItem38.Name = "barButtonItem38";
             this.barButtonItem38.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem38_ItemClick);
             // 
@@ -689,6 +691,7 @@
             // 
             this.barButtonItem7.Caption = "层次分析法综合指数";
             this.barButtonItem7.Id = 95;
+            this.barButtonItem7.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.LargeGlyph")));
             this.barButtonItem7.Name = "barButtonItem7";
             this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
             // 
@@ -1047,21 +1050,21 @@
             // btnStartEdit
             // 
             this.btnStartEdit.Name = "btnStartEdit";
-            this.btnStartEdit.Size = new System.Drawing.Size(124, 22);
+            this.btnStartEdit.Size = new System.Drawing.Size(152, 22);
             this.btnStartEdit.Text = "开始编辑";
             this.btnStartEdit.Click += new System.EventHandler(this.btnStartEdit_Click);
             // 
             // btnSaveEdit
             // 
             this.btnSaveEdit.Name = "btnSaveEdit";
-            this.btnSaveEdit.Size = new System.Drawing.Size(124, 22);
+            this.btnSaveEdit.Size = new System.Drawing.Size(152, 22);
             this.btnSaveEdit.Text = "保存编辑";
             this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
             // 
             // btnEndEdit
             // 
             this.btnEndEdit.Name = "btnEndEdit";
-            this.btnEndEdit.Size = new System.Drawing.Size(124, 22);
+            this.btnEndEdit.Size = new System.Drawing.Size(152, 22);
             this.btnEndEdit.Text = "结束编辑";
             this.btnEndEdit.Click += new System.EventHandler(this.btnEndEdit_Click);
             // 
@@ -1092,7 +1095,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "青藏高原基础设施灾害评估";
+            this.Text = "青藏高原基础设施风险与经济损失演示程序";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).EndInit();
