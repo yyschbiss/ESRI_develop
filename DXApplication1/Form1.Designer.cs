@@ -88,6 +88,7 @@
             this.btnMoveVertex = new DevExpress.XtraBars.BarButtonItem();
             this.btnAddVertex = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelVertex = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -114,7 +115,6 @@
             this.ribbonPageGroup32 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup22 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -211,10 +211,11 @@
             this.btnAddFeature,
             this.btnMoveVertex,
             this.btnAddVertex,
-            this.btnDelVertex});
+            this.btnDelVertex,
+            this.barButtonItem7});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ribbonControl1.MaxItemId = 95;
+            this.ribbonControl1.MaxItemId = 96;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -342,6 +343,7 @@
             this.barButtonItem17.Id = 39;
             this.barButtonItem17.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.LargeGlyph")));
             this.barButtonItem17.Name = "barButtonItem17";
+            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
             // 
             // barButtonItem18
             // 
@@ -485,7 +487,7 @@
             // 
             // barButtonItem36
             // 
-            this.barButtonItem36.Caption = "Ir";
+            this.barButtonItem36.Caption = "风险区域划分指数Ir";
             this.barButtonItem36.Id = 58;
             this.barButtonItem36.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem36.LargeGlyph")));
             this.barButtonItem36.Name = "barButtonItem36";
@@ -493,7 +495,7 @@
             // 
             // barButtonItem37
             // 
-            this.barButtonItem37.Caption = "环境承受力Ia";
+            this.barButtonItem37.Caption = "环境承受力指数Ia";
             this.barButtonItem37.Id = 59;
             this.barButtonItem37.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem37.LargeGlyph")));
             this.barButtonItem37.Name = "barButtonItem37";
@@ -684,6 +686,13 @@
             this.btnDelVertex.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDelVertex.LargeGlyph")));
             this.btnDelVertex.Name = "btnDelVertex";
             this.btnDelVertex.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelVertex_ItemClick);
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "层次分析法综合指数";
+            this.barButtonItem7.Id = 95;
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -881,30 +890,23 @@
             // 
             this.ribbonPageGroup32.AllowTextClipping = false;
             this.ribbonPageGroup32.ItemLinks.Add(this.barButtonItem38);
+            this.ribbonPageGroup32.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup32.Name = "ribbonPageGroup32";
             this.ribbonPageGroup32.Text = "综合风险指数";
             // 
             // ribbonPage7
             // 
             this.ribbonPage7.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup12,
-            this.ribbonPageGroup13});
+            this.ribbonPageGroup12});
             this.ribbonPage7.Name = "ribbonPage7";
-            this.ribbonPage7.Text = "风险评估";
+            this.ribbonPage7.Text = "经济损失";
             // 
             // ribbonPageGroup12
             // 
             this.ribbonPageGroup12.AllowTextClipping = false;
             this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem39);
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-            this.ribbonPageGroup12.Text = "经济损失计算";
-            // 
-            // ribbonPageGroup13
-            // 
-            this.ribbonPageGroup13.AllowTextClipping = false;
-            this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem40);
-            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
-            this.ribbonPageGroup13.Text = "冻土融沉风险经济评估";
+            this.ribbonPageGroup12.Text = "经济损失计算结果";
             // 
             // ribbonPage8
             // 
@@ -1157,7 +1159,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
@@ -1245,6 +1246,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnEndEdit;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox cmbSelLayer;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
     }
 }
 

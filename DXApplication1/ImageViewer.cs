@@ -56,6 +56,12 @@ namespace DXApplication1
                     fileNames[2] = "IcRCP45";
                     fileNames[3] = "IcRCP85";
                     break;
+                case "AHP":
+                    fileNames[0] = "AHPBaseline";
+                    fileNames[1] = "AHPRCP26";
+                    fileNames[2] = "AHPRCP45";
+                    fileNames[3] = "AHPRCP85";
+                    break;
                 default:
                     break;
             }

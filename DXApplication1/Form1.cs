@@ -1265,6 +1265,35 @@ namespace DXApplication1
             }
         }
 
+        private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string[] tifFile = new string[2];
+            System.Windows.Forms.OpenFileDialog openFiledialog;
+            openFiledialog = new OpenFileDialog();
+            openFiledialog.Title = "打开Modis图像";
+            openFiledialog.Filter = "卫星影像(.tif)|*.tif";
+            if (openFiledialog.ShowDialog() == DialogResult.OK)
+            {
+                string[] FileInfo = new string[2];
+                FileInfo = splitThePath(openFiledialog.FileName);
+                IRasterDataset tifdataset = OpenFileRasterDataset(FileInfo[0], FileInfo[1]);
+                IRasterLayer rasterlayer = new RasterLayerClass();
+                rasterlayer.CreateFromDataset(tifdataset);
+                axMapControl1.Map.AddLayer(rasterlayer as ILayer);
+                axMapControl1.Extent = axMapControl1.FullExtent;
+            }
+            else
+            {
+                MessageBox.Show("文件打开出错");
+            }
+        }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ImageViewer IsViewer = new ImageViewer("AHP");
+            IsViewer.Show();
+        }
+
 
     }
 }
